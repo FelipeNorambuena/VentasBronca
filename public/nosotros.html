@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | VentasBronca</title>
+    <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER: igual al index -->
+    <header>
+        <!-- Barra de navegación principal responsiva -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" role="navigation" aria-label="Navegación principal">
+            <div class="container-fluid">
+                <!-- Logo/Marca de la tienda -->
+                <a class="navbar-brand d-flex align-items-center" href="#" aria-label="VentasBronca - Inicio">
+                    <img src="../src/assets/images/logo.jpg" alt="Logo VentasBronca" class="logo-img me-2">
+                    <span class="brand-text d-none d-sm-inline">VentasBronca</span>
+                </a>
+                
+                <!-- Botón hamburguesa para dispositivos móviles -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" 
+                        aria-controls="navbarMain" aria-expanded="false" aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menú de navegación colapsable -->
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <!-- Enlaces de navegación principales -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" aria-current="page">
+                                <i class="fas fa-home me-1"></i>Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#productos-destacados">
+                                <i class="fas fa-shopping-bag me-1"></i>Productos
+                            </a>
+                        </li>
+                        <!-- Menú desplegable de categorías -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+                               aria-expanded="false" aria-label="Menú de categorías">
+                                <i class="fas fa-list me-1"></i>Categorías
+                            </a>
+                            <ul class="dropdown-menu shadow">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-shield-alt me-2"></i>Militares</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-hiking me-2"></i>Mochilas y bolsos</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-campground me-2"></i>Camping</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-hat-cowboy me-2"></i>Jockey</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-fish me-2"></i>Caza y pesca</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-lightbulb me-2"></i>Iluminación</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-glasses me-2"></i>Lentes</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-shoe-prints me-2"></i>Botas Militares</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-tools me-2"></i>Accesorios</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Ver más</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto">
+                                <i class="fas fa-envelope me-1"></i>Contacto
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">
+                                <i class="fas fa-user me-1"></i>Iniciar sesión
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="registro.html">
+                                <i class="fas fa-user-plus me-1"></i>Registrarse
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Barra de búsqueda responsiva -->
+                    <form class="d-flex me-3" role="search" aria-label="Búsqueda de productos">
+                        <div class="input-group">
+                            <input class="form-control" type="search" placeholder="Buscar productos..." 
+                                   aria-label="Buscar productos" required>
+                            <button class="btn btn-outline-success" type="submit" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Botón de carrito en la barra de navegación (visible en pantallas grandes) -->
+                    <button class="btn btn-outline-primary d-none d-lg-flex align-items-center" 
+                            data-bs-toggle="modal" data-bs-target="#cartModal" aria-label="Ver carrito de compras">
+                        <i class="fas fa-shopping-cart me-1"></i>
+                        Carrito <span id="cart-count-nav" class="badge bg-danger ms-1">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-5 mt-5">
+        <section class="mb-5">
+            <h1 class="display-5 fw-bold text-center mb-4">Sobre VentasBronca</h1>
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Equipo VentasBronca" class="img-fluid rounded shadow" style="max-height:320px;object-fit:cover;">
+                </div>
+                <div class="col-md-6">
+                    <p class="lead">VentasBronca es una tienda especializada en productos tácticos, militares y de outdoor, comprometida con la calidad, la innovación y la satisfacción de nuestros clientes. Nos dedicamos a ofrecer equipamiento confiable para profesionales, aventureros y entusiastas de la vida al aire libre.</p>
+                    <ul>
+                        <li>Productos de alta resistencia y durabilidad.</li>
+                        <li>Atención personalizada y asesoría experta.</li>
+                        <li>Envíos a todo Chile y soporte postventa.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 class="h4 fw-bold text-center mb-4">Nuestro equipo</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4 text-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Felipe Norambuena" class="rounded-circle shadow mb-2" style="width:100px;height:100px;object-fit:cover;">
+                    <h5 class="mb-0">Felipe Norambuena</h5>
+                    <small class="text-muted">Fundador & Desarrollador Fullstack</small>
+                    <p class="mt-2 small">Apasionado por la tecnología, la seguridad y el desarrollo de soluciones digitales para el mundo real.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Camila Torres" class="rounded-circle shadow mb-2" style="width:100px;height:100px;object-fit:cover;">
+                    <h5 class="mb-0">Camila Torres</h5>
+                    <small class="text-muted">Diseñadora UX/UI</small>
+                    <p class="mt-2 small">Especialista en experiencia de usuario y diseño visual, enfocada en crear interfaces intuitivas y atractivas.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <<!-- ===============================
+         FOOTER - PIE DE PÁGINA
+         =============================== -->
+    <footer class="footer bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <!-- Información de la empresa -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <img src="../src/assets/images/logo.jpg" alt="Logo VentasBronca" class="footer-logo me-2">
+                        VentasBronca
+                    </h5>
+                    <p class="text-muted">
+                        Especialistas en productos tácticos, militares y equipamiento para actividades al aire libre. 
+                        Calidad y resistencia garantizada.
+                    </p>
+                </div>
+                
+                <!-- Enlaces útiles -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Inicio</a></li>
+                        <li><a href="#productos-destacados" class="text-muted text-decoration-none">Productos</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Categorías</a></li>
+                        <li><a href="#contacto" class="text-muted text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Categorías -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Categorías</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Militares</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Camping</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Tácticos</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Accesorios</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Redes sociales y contacto -->
+                <div class="col-lg-3 col-md-6 mb-4" id="contacto">
+                    <h6 class="fw-bold mb-3">Síguenos</h6>
+                    <div class="social-links mb-3">
+                        <a href="https://www.instagram.com/ventas_bronca/" target="_blank" 
+                           class="text-light me-3" aria-label="Síguenos en Instagram">
+                            <img src="../src/assets/icons/instagram.svg" alt="Instagram" style="height:32px;width:32px;">
+                        </a>
+                        <a href="https://api.whatsapp.com/send/?phone=56974161396&text&type=phone_number&app_absent=0" target="_blank" 
+                           class="text-light" aria-label="Contáctanos por WhatsApp">
+                            <img src="../src/assets/icons/whatsapp.svg" alt="WhatsApp" style="height:32px;width:32px;">
+                        </a>
+                    </div>
+                    <p class="text-muted mb-0">
+                        <i class="fas fa-phone me-2"></i>+56 9 7416 1396
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria -->
+            <hr class="my-4 border-secondary">
+            
+            <!-- Copyright -->
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">
+                        &copy; 2025 VentasBronca. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted mb-0">
+                        Desarrollado con <i class="fas fa-heart text-danger"></i> para profesionales
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
