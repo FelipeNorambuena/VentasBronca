@@ -419,6 +419,12 @@ body {
 }
 
 /* Enlaces en el footer */
+.footer,
+.footer a,
+.footer .text-muted,
+.footer ul li a {
+    color: #fff !important;
+}
 .footer a:hover {
     color: #007bff !important; /* Color azul al hover */
     transform: translateX(5px); /* Deslizamiento ligero */
