@@ -1,404 +1,945 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
-    <!-- Estilos -->
+    <meta name="description" content="VentasBronca - Tienda especializada en productos tácticos, militares, camping y accesorios de alta calidad">
+    <meta name="keywords" content="productos tácticos, militar, camping, chalecos, guantes, sobaquera, equipamiento">
+    <meta name="author" content="VentasBronca">
+    
+    <!-- Título de la página -->
+    <title>VentasBronca - Tienda de Productos Tácticos</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="IMG/Logo tienda.jpg">
+    
+    <!-- Hojas de estilo externas - Bootstrap primero para que nuestros estilos personalizados tengan prioridad -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Font Awesome para iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" 
+          integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous">
+    
+    <!-- Hoja de estilos personalizada -->
     <link rel="stylesheet" href="css/estilo.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome (íconos) - Importante que esté aquí -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+<<body>
+    <!-- ===============================
+         HEADER - NAVEGACIÓN PRINCIPAL
+         =============================== -->
+    <header>
+        <!-- Barra de navegación principal responsiva -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" role="navigation" aria-label="Navegación principal">
+            <div class="container-fluid">
+                <!-- Logo/Marca de la tienda -->
+                <a class="navbar-brand d-flex align-items-center" href="#" aria-label="VentasBronca - Inicio">
+                    <img src="IMG/Logo tienda.jpg" alt="Logo VentasBronca" class="logo-img me-2">
+                    <span class="brand-text d-none d-sm-inline">VentasBronca</span>
+                </a>
+                
+                <!-- Botón hamburguesa para dispositivos móviles -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" 
+                        aria-controls="navbarMain" aria-expanded="false" aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menú de navegación colapsable -->
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <!-- Enlaces de navegación principales -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" aria-current="page">
+                                <i class="fas fa-home me-1"></i>Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#productos-destacados">
+                                <i class="fas fa-shopping-bag me-1"></i>Productos
+                            </a>
+                        </li>
+                        <!-- Menú desplegable de categorías -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+                               aria-expanded="false" aria-label="Menú de categorías">
+                                <i class="fas fa-list me-1"></i>Categorías
+                            </a>
+                            <ul class="dropdown-menu shadow">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-shield-alt me-2"></i>Militares</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-hiking me-2"></i>Mochilas y bolsos</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-campground me-2"></i>Camping</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-hat-cowboy me-2"></i>Jockey</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-fish me-2"></i>Caza y pesca</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-lightbulb me-2"></i>Iluminación</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-glasses me-2"></i>Lentes</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-shoe-prints me-2"></i>Botas Militares</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-tools me-2"></i>Accesorios</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Ver más</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto">
+                                <i class="fas fa-envelope me-1"></i>Contacto
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Barra de búsqueda responsiva -->
+                    <form class="d-flex me-3" role="search" aria-label="Búsqueda de productos">
+                        <div class="input-group">
+                            <input class="form-control" type="search" placeholder="Buscar productos..." 
+                                   aria-label="Buscar productos" required>
+                            <button class="btn btn-outline-success" type="submit" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Botón de carrito en la barra de navegación (visible en pantallas grandes) -->
+                    <button class="btn btn-outline-primary d-none d-lg-flex align-items-center" 
+                            data-bs-toggle="modal" data-bs-target="#cartModal" aria-label="Ver carrito de compras">
+                        <i class="fas fa-shopping-cart me-1"></i>
+                        Carrito <span id="cart-count-nav" class="badge bg-danger ms-1">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="IMG/Logo tienda.jpg" alt="Logo" style="height: 50px;"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Productos</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorias
+    <!-- ===============================
+         MAIN CONTENT - CONTENIDO PRINCIPAL
+         =============================== -->
+    <main class="main-content">
+        <!-- ===============================
+             SECCIÓN HERO - CARRUSEL PRINCIPAL
+             =============================== -->
+        <section class="hero-section" aria-label="Productos destacados">
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+                <!-- Indicadores del carrusel -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" 
+                            aria-current="true" aria-label="Ir a la primera imagen"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" 
+                            aria-label="Ir a la segunda imagen"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" 
+                            aria-label="Ir a la tercera imagen"></button>
+                </div>
+                
+                <!-- Contenido del carrusel -->
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <img src="IMG/5803438.jpg" class="d-block w-100 carousel-image" 
+                             alt="Productos tácticos de alta calidad">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="display-4 fw-bold">Productos Tácticos de Calidad</h1>
+                            <p class="lead">Encuentra el mejor equipamiento militar y táctico para profesionales</p>
+                            <a href="#productos-destacados" class="btn btn-primary btn-lg">Ver Productos</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <img src="IMG/5803438.jpg" class="d-block w-100 carousel-image" 
+                             alt="Equipamiento para camping y actividades al aire libre">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2 class="display-4 fw-bold">Equipamiento para Camping</h2>
+                            <p class="lead">Todo lo que necesitas para tus aventuras al aire libre</p>
+                            <a href="#productos-destacados" class="btn btn-success btn-lg">Explorar</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <img src="IMG/5803438.jpg" class="d-block w-100 carousel-image" 
+                             alt="Accesorios y herramientas especializadas">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2 class="display-4 fw-bold">Accesorios Especializados</h2>
+                            <p class="lead">Herramientas y accesorios de la más alta calidad</p>
+                            <a href="#productos-destacados" class="btn btn-warning btn-lg">Descubrir</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controles de navegación del carrusel -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ===============================
+             SECCIÓN PRODUCTOS DESTACADOS
+             =============================== -->
+        <section id="productos-destacados" class="products-section py-5">
+            <div class="container">
+                <!-- Título de la sección -->
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 class="display-5 fw-bold mb-3">Productos Destacados</h2>
+                        <p class="lead text-muted">Descubre nuestra selección de productos tácticos de alta calidad</p>
+                        <hr class="mx-auto" style="width: 100px; height: 3px;">
+                    </div>
+                </div>
+                
+                <!-- Grid de productos responsivo -->
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                    
+                    <!-- Producto 1: Chaleco Táctico -->
+                    <div class="col">
+                        <article class="card h-100 product-card shadow-sm">
+                            <!-- Carrusel de imágenes del producto -->
+                            <div id="carouselChaleco" class="carousel slide product-carousel" data-bs-ride="false">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="IMG/Productos/Tactico/ChalecoTactico1.jpg" 
+                                             class="d-block w-100 product-image" 
+                                             alt="Chaleco táctico vista frontal"
+                                             loading="lazy">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="IMG/Productos/Tactico/Chalecotactico2.jpg" 
+                                             class="d-block w-100 product-image" 
+                                             alt="Chaleco táctico vista posterior"
+                                             loading="lazy">
+                                    </div>
+                                </div>
+                                <!-- Controles del carrusel del producto -->
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselChaleco" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Imagen anterior</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselChaleco" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Siguiente imagen</span>
+                                </button>
+                                <!-- Indicador de múltiples imágenes -->
+                                <div class="product-image-indicator">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Información del producto -->
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h5">Chaleco Táctico</h3>
+                                <p class="card-text text-muted">Chaleco táctico de alta resistencia, ideal para profesionales de seguridad y fuerzas especiales.</p>
+                                <div class="product-meta mb-3">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-barcode me-1"></i>SKU: CHA-001
+                                    </small>
+                                    <small class="text-success">
+                                        <i class="fas fa-check-circle me-1"></i>En stock
+                                    </small>
+                                </div>
+                                <!-- Precio destacado -->
+                                <div class="price-section mb-3 mt-auto">
+                                    <span class="h4 text-primary fw-bold">$32.000</span>
+                                    <small class="text-muted d-block">Precio incluye IVA</small>
+                                </div>
+                            </div>
+                            
+                            <!-- Acciones del producto -->
+                            <div class="card-footer bg-transparent border-0 pt-0">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <label for="qty-chaleco" class="visually-hidden">Cantidad</label>
+                                    <input type="number" id="qty-chaleco" min="1" max="10" value="1" 
+                                           class="form-control qty-input" style="width: 70px;" 
+                                           aria-label="Cantidad de chalecos tácticos">
+                                    <button class="btn btn-primary flex-grow-1 add-to-cart" 
+                                            data-id="1" 
+                                            data-sku="CHA-001"
+                                            data-name="Chaleco táctico" 
+                                            data-price="32000"
+                                            aria-label="Añadir chaleco táctico al carrito">
+                                        <i class="fas fa-cart-plus me-1"></i>Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Producto 2: Plato Doble Camping -->
+                    <div class="col">
+                        <article class="card h-100 product-card shadow-sm">
+                            <div class="single-product-image">
+                                <img src="IMG/Productos/Camping/PlatoDoble1.jpg" 
+                                     class="card-img-top product-image" 
+                                     alt="Plato doble para camping de acero inoxidable"
+                                     loading="lazy">
+                            </div>
+                            
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h5">Plato Doble Camping</h3>
+                                <p class="card-text text-muted">Plato doble de acero inoxidable, perfecto para camping y actividades al aire libre.</p>
+                                <div class="product-meta mb-3">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-barcode me-1"></i>SKU: PLA-005
+                                    </small>
+                                    <small class="text-success">
+                                        <i class="fas fa-check-circle me-1"></i>En stock
+                                    </small>
+                                </div>
+                                <div class="price-section mb-3 mt-auto">
+                                    <span class="h4 text-primary fw-bold">$4.990</span>
+                                    <small class="text-muted d-block">Precio incluye IVA</small>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer bg-transparent border-0 pt-0">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <label for="qty-plato" class="visually-hidden">Cantidad</label>
+                                    <input type="number" id="qty-plato" min="1" max="10" value="1" 
+                                           class="form-control qty-input" style="width: 70px;" 
+                                           aria-label="Cantidad de platos dobles">
+                                    <button class="btn btn-primary flex-grow-1 add-to-cart" 
+                                            data-id="5" 
+                                            data-sku="PLA-005"
+                                            data-name="Plato Doble Camping" 
+                                            data-price="4990"
+                                            aria-label="Añadir plato doble al carrito">
+                                        <i class="fas fa-cart-plus me-1"></i>Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Producto 3: Sobaquera para Pistola -->
+                    <div class="col">
+                        <article class="card h-100 product-card shadow-sm">
+                            <div id="carouselSobaquera" class="carousel slide product-carousel" data-bs-ride="false">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="IMG/Productos/Militar/SobaqueraPistola1.jpg" 
+                                             class="d-block w-100 product-image" 
+                                             alt="Sobaquera para pistola vista frontal"
+                                             loading="lazy">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="IMG/Productos/Militar/SobaqueraPistola2.jpg" 
+                                             class="d-block w-100 product-image" 
+                                             alt="Sobaquera para pistola vista lateral"
+                                             loading="lazy">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="IMG/Productos/Militar/SobaqueraPistola3.jpg" 
+                                             class="d-block w-100 product-image" 
+                                             alt="Sobaquera para pistola en uso"
+                                             loading="lazy">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselSobaquera" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Imagen anterior</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselSobaquera" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Siguiente imagen</span>
+                                </button>
+                                <div class="product-image-indicator">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h5">Sobaquera para Pistola</h3>
+                                <p class="card-text text-muted">Sobaquera táctica ajustable y discreta, fabricada con materiales de alta calidad.</p>
+                                <div class="product-meta mb-3">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-barcode me-1"></i>SKU: SOB-006
+                                    </small>
+                                    <small class="text-success">
+                                        <i class="fas fa-check-circle me-1"></i>En stock
+                                    </small>
+                                </div>
+                                <div class="price-section mb-3 mt-auto">
+                                    <span class="h4 text-primary fw-bold">$15.990</span>
+                                    <small class="text-muted d-block">Precio incluye IVA</small>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer bg-transparent border-0 pt-0">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <label for="qty-sobaquera" class="visually-hidden">Cantidad</label>
+                                    <input type="number" id="qty-sobaquera" min="1" max="10" value="1" 
+                                           class="form-control qty-input" style="width: 70px;" 
+                                           aria-label="Cantidad de sobaqueras">
+                                    <button class="btn btn-primary flex-grow-1 add-to-cart" 
+                                            data-id="6" 
+                                            data-sku="SOB-006"
+                                            data-name="Sobaquera para pistola" 
+                                            data-price="15990"
+                                            aria-label="Añadir sobaquera al carrito">
+                                        <i class="fas fa-cart-plus me-1"></i>Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Producto 4: Guantes Impermeables -->
+                    <div class="col">
+                        <article class="card h-100 product-card shadow-sm">
+                            <div id="carouselGuantes" class="carousel slide product-carousel" data-bs-ride="false">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="IMG/Productos/Tactico/Guantesimpermeables1.jpg" 
+                                             class="d-block w-100 product-image" 
+                                             alt="Guantes impermeables vista frontal"
+                                             loading="lazy">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="IMG/Productos/Tactico/Guantesimpermeables2.jpg" 
+                                             class="d-block w-100 product-image" 
+                                             alt="Guantes impermeables vista dorsal"
+                                             loading="lazy">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselGuantes" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Imagen anterior</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselGuantes" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Siguiente imagen</span>
+                                </button>
+                                <div class="product-image-indicator">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h5">Guantes Impermeables</h3>
+                                <p class="card-text text-muted">Guantes tácticos impermeables y resistentes, ideales para condiciones adversas.</p>
+                                <div class="product-meta mb-3">
+                                    <small class="text-muted d-block">
+                                        <i class="fas fa-barcode me-1"></i>SKU: GUA-007
+                                    </small>
+                                    <small class="text-success">
+                                        <i class="fas fa-check-circle me-1"></i>En stock
+                                    </small>
+                                </div>
+                                <div class="price-section mb-3 mt-auto">
+                                    <span class="h4 text-primary fw-bold">$11.990</span>
+                                    <small class="text-muted d-block">Precio incluye IVA</small>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer bg-transparent border-0 pt-0">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <label for="qty-guantes" class="visually-hidden">Cantidad</label>
+                                    <input type="number" id="qty-guantes" min="1" max="10" value="1" 
+                                           class="form-control qty-input" style="width: 70px;" 
+                                           aria-label="Cantidad de guantes">
+                                    <button class="btn btn-primary flex-grow-1 add-to-cart" 
+                                            data-id="7" 
+                                            data-sku="GUA-007"
+                                            data-name="Guantes impermeables" 
+                                            data-price="11990"
+                                            aria-label="Añadir guantes al carrito">
+                                        <i class="fas fa-cart-plus me-1"></i>Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===============================
+         FOOTER - PIE DE PÁGINA
+         =============================== -->
+    <footer class="footer bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <!-- Información de la empresa -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <img src="IMG/Logo tienda.jpg" alt="Logo VentasBronca" class="footer-logo me-2">
+                        VentasBronca
+                    </h5>
+                    <p class="text-muted">
+                        Especialistas en productos tácticos, militares y equipamiento para actividades al aire libre. 
+                        Calidad y resistencia garantizada.
+                    </p>
+                </div>
+                
+                <!-- Enlaces útiles -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Inicio</a></li>
+                        <li><a href="#productos-destacados" class="text-muted text-decoration-none">Productos</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Categorías</a></li>
+                        <li><a href="#contacto" class="text-muted text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Categorías -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Categorías</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Militares</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Camping</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Tácticos</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Accesorios</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Redes sociales y contacto -->
+                <div class="col-lg-3 col-md-6 mb-4" id="contacto">
+                    <h6 class="fw-bold mb-3">Síguenos</h6>
+                    <div class="social-links mb-3">
+                        <a href="https://www.instagram.com/ventas_bronca/" target="_blank" 
+                           class="text-light me-3" aria-label="Síguenos en Instagram">
+                            <i class="fab fa-instagram fa-2x"></i>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Militares</a></li>
-                            <li><a class="dropdown-item" href="#">Mochilas y bolsos</a></li>
-                            <li><a class="dropdown-item" href="#">Camping</a></li>
-                            <li><a class="dropdown-item" href="#">Jockey</a></li>
-                            <li><a class="dropdown-item" href="#">Caza y pesca</a></li>
-                            <li><a class="dropdown-item" href="#">Iluminación</a></li>
-                            <li><a class="dropdown-item" href="#">Lentes</a></li>
-                            <li><a class="dropdown-item" href="#">Botas Militares</a></li>
-                            <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Ver más</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Enlace deshabilitado</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Carrusel -->
-    <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="IMG/5803438.jpg" class="d-block w-100" alt="IMAGENES CARRUSEL">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="IMG/5803438.jpg" class="d-block w-100" alt="IMAGENES CARRUSEL">
-                <div class="carousel-caption d-none d-md-block">  
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="IMG/5803438.jpg" class="d-block w-100" alt="IMAGENES CARRUSEL">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-    <!-- Tarjetas de productos -->
-    <div class="row row-cols-1 row-cols-md-4 g-4 p-4">
-        <!-- Chaleco táctico (2 imágenes) -->
-        <div class="col">
-            <div class="card h-100">
-                <div id="carouselChaleco" class="carousel slide">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="IMG/Productos/Tactico/ChalecoTactico1.jpg" class="d-block w-100" alt="Chaleco táctico 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="IMG/Productos/Tactico/Chalecotactico2.jpg" class="d-block w-100" alt="Chaleco táctico 2">
-                        </div>
+                        <a href="https://wa.me/56961790214" target="_blank" 
+                           class="text-light" aria-label="Contáctanos por WhatsApp">
+                            <i class="fab fa-whatsapp fa-2x"></i>
+                        </a>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselChaleco" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselChaleco" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
+                    <p class="text-muted mb-0">
+                        <i class="fas fa-phone me-2"></i>+56 9 6179 0214
+                    </p>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Chaleco táctico</h5>
-                    <p class="card-text">Chaleco táctico de alta resistencia.</p>
-                    <p class="mb-1"><small class="text-muted">SKU: CHA-001</small></p>
+            </div>
+            
+            <!-- Línea divisoria -->
+            <hr class="my-4 border-secondary">
+            
+            <!-- Copyright -->
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">
+                        &copy; 2025 VentasBronca. Todos los derechos reservados.
+                    </p>
                 </div>
-                <div class="card-footer d-flex align-items-center gap-2">
-                    <input type="number" min="1" value="1" class="form-control qty-input" style="width: 70px;" aria-label="Cantidad">
-                    <button class="btn btn-primary add-to-cart" 
-                            data-id="1" 
-                            data-sku="CHA-001"
-                            data-name="Chaleco táctico" 
-                            data-price="32000">
-                        Añadir al carrito
-                    </button>
-                    <small class="text-body-secondary ms-auto">Valor $32.000</small>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted mb-0">
+                        Desarrollado con <i class="fas fa-heart text-danger"></i> para profesionales
+                    </p>
                 </div>
             </div>
         </div>
-        <!-- Plato Doble Camping (1 imagen) -->
-        <div class="col">
-            <div class="card h-100">
-                <img src="IMG/Productos/Camping/PlatoDoble1.jpg" class="card-img-top" alt="Plato Doble Camping">
-                <div class="card-body">
-                    <h5 class="card-title">Plato Doble Camping</h5>
-                    <p class="card-text">Plato doble ideal para camping y actividades al aire libre.</p>
-                    <p class="mb-1"><small class="text-muted">SKU: PLA-005</small></p>
-                </div>
-                <div class="card-footer d-flex align-items-center gap-2">
-                    <input type="number" min="1" value="1" class="form-control qty-input" style="width: 70px;" aria-label="Cantidad">
-                    <button class="btn btn-primary add-to-cart" 
-                            data-id="5" 
-                            data-sku="PLA-005"
-                            data-name="Plato Doble Camping" 
-                            data-price="4990">
-                        Añadir al carrito
-                    </button>
-                    <small class="text-body-secondary ms-auto">Valor $4.990</small>
-                </div>
-            </div>
-        </div>
-        <!-- Sobaquera Pistola (3 imágenes) -->
-        <div class="col">
-            <div class="card h-100">
-                <div id="carouselSobaquera" class="carousel slide">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="IMG/Productos/Militar/SobaqueraPistola1.jpg" class="d-block w-100" alt="Sobaquera Pistola 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="IMG/Productos/Militar/SobaqueraPistola2.jpg" class="d-block w-100" alt="Sobaquera Pistola 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="IMG/Productos/Militar/SobaqueraPistola3.jpg" class="d-block w-100" alt="Sobaquera Pistola 3">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselSobaquera" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselSobaquera" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Sobaquera para pistola</h5>
-                    <p class="card-text">Sobaquera táctica ajustable para pistola.</p>
-                    <p class="mb-1"><small class="text-muted">SKU: SOB-006</small></p>
-                </div>
-                <div class="card-footer d-flex align-items-center gap-2">
-                    <input type="number" min="1" value="1" class="form-control qty-input" style="width: 70px;" aria-label="Cantidad">
-                    <button class="btn btn-primary add-to-cart" 
-                            data-id="6" 
-                            data-sku="SOB-006"
-                            data-name="Sobaquera para pistola" 
-                            data-price="15990">
-                        Añadir al carrito
-                    </button>
-                    <small class="text-body-secondary ms-auto">Valor $15.990</small>
-                </div>
-            </div>
-        </div>
-        <!-- Guantes impermeables (2 imágenes) -->
-        <div class="col">
-            <div class="card h-100">
-                <div id="carouselGuantes" class="carousel slide">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="IMG/Productos/Tactico/Guantesimpermeables1.jpg" class="d-block w-100" alt="Guantes impermeables 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="IMG/Productos/Tactico/Guantesimpermeables2.jpg" class="d-block w-100" alt="Guantes impermeables 2">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselGuantes" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselGuantes" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Guantes impermeables</h5>
-                    <p class="card-text">Guantes tácticos impermeables y resistentes.</p>
-                    <p class="mb-1"><small class="text-muted">SKU: GUA-007</small></p>
-                </div>
-                <div class="card-footer d-flex align-items-center gap-2">
-                    <input type="number" min="1" value="1" class="form-control qty-input" style="width: 70px;" aria-label="Cantidad">
-                    <button class="btn btn-primary add-to-cart" 
-                            data-id="7" 
-                            data-sku="GUA-007"
-                            data-name="Guantes impermeables" 
-                            data-price="11990">
-                        Añadir al carrito
-                    </button>
-                    <small class="text-body-secondary ms-auto">Valor $11.990</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Iconos sociales -->
-    <footer id="iconos-sociales" class="container d-flex justify-content-center align-items-center flex-wrap mb-4">
-        <a href="https://www.instagram.com/ventas_bronca/" target="_blank" title="Instagram" class="me-4">
-            <img src="IMG/icons8-instagram-logo.svg" alt="Instagram Logo" width="40" height="40">
-        </a>
-        <a href="https://wa.me/56961790214" target="_blank" title="WhatsApp">
-            <img src="IMG/icons8-whatsapp.svg" alt="WhatsApp Logo" width="40" height="40">
-        </a>
     </footer>
 
-    <!-- Botón flotante de carrito -->
-    <button id="cart-btn" class="btn btn-success btn-lg rounded-circle position-fixed bottom-0 end-0 m-4" 
-            style="width: 60px; height: 60px; z-index: 1000;" 
-            data-bs-toggle="modal" data-bs-target="#cartModal">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge bg-danger rounded-pill">0</span>
-    </button>
+    <!-- ===============================
+         BOTÓN FLOTANTE DEL CARRITO
+         =============================== -->
+    <div class="floating-cart">
+        <button id="cart-btn" class="btn btn-success btn-lg rounded-circle position-fixed shadow-lg" 
+                style="bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 1050;" 
+                data-bs-toggle="modal" data-bs-target="#cartModal"
+                aria-label="Ver carrito de compras">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge bg-danger rounded-pill">
+                0
+            </span>
+        </button>
+    </div>
 
-    <!-- Modal del Carrito -->
+    <!-- ===============================
+         MODAL DEL CARRITO DE COMPRAS
+         =============================== -->
     <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="cartModalLabel">Tu Carrito de Compras</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- Encabezado del modal -->
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="cartModalLabel">
+                        <i class="fas fa-shopping-cart me-2"></i>Tu Carrito de Compras
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" 
+                            aria-label="Cerrar carrito"></button>
                 </div>
+                
+                <!-- Contenido del modal -->
                 <div class="modal-body">
-                    <ul id="cart-items" class="list-group mb-3">
-                        <!-- Productos agregados dinámicamente -->
-                    </ul>
-                    <p id="cart-empty" class="text-center text-muted">Tu carrito está vacío.</p>
+                    <!-- Lista de productos en el carrito -->
+                    <div id="cart-items-container">
+                        <ul id="cart-items" class="list-group mb-3">
+                            <!-- Los productos se agregan dinámicamente aquí -->
+                        </ul>
+                        
+                        <!-- Mensaje cuando el carrito está vacío -->
+                        <div id="cart-empty" class="text-center py-4">
+                            <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                            <h6 class="text-muted">Tu carrito está vacío</h6>
+                            <p class="text-muted">Agrega algunos productos para comenzar</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Resumen del pedido -->
+                    <div id="cart-summary" class="d-none">
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="mb-0">Total de productos:</h6>
+                            <span id="total-items" class="fw-bold">0</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Total a pagar:</h5>
+                            <span id="total-price" class="h5 text-primary fw-bold">$0</span>
+                        </div>
+                    </div>
                 </div>
+                
+                <!-- Pie del modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
-                    <button id="checkout-btn" class="btn btn-success">Finalizar pedido por WhatsApp</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-arrow-left me-1"></i>Seguir comprando
+                    </button>
+                    <button id="checkout-btn" class="btn btn-success" disabled>
+                        <i class="fab fa-whatsapp me-1"></i>Finalizar pedido por WhatsApp
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts (al final del body) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ===============================
+         SCRIPTS DE JAVASCRIPT
+         =============================== -->
+    <!-- Bootstrap JS (requerido para componentes interactivos) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+            crossorigin="anonymous"></script>
+    
+    <!-- Script principal de funcionalidades adicionales -->
+    <script src="js/main.js"></script>
+    
+    <!-- Script personalizado para funcionalidad del carrito -->
     <script>
-        // Cargar carrito desde localStorage o iniciar vacío
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        /**
+         * ===============================
+         * SISTEMA DE CARRITO DE COMPRAS
+         * ===============================
+         * Este script maneja toda la funcionalidad del carrito de compras:
+         * - Agregar productos
+         * - Modificar cantidades
+         * - Eliminar productos
+         * - Persistencia en localStorage
+         * - Integración con WhatsApp
+         */
 
-        // Referencias del DOM
-        const cartItems = document.getElementById('cart-items');
-        const cartCount = document.getElementById('cart-count');
-        const cartEmpty = document.getElementById('cart-empty');
-        const checkoutBtn = document.getElementById('checkout-btn');
+        // ===== INICIALIZACIÓN DE VARIABLES GLOBALES =====
+        
+        // Cargar carrito desde localStorage o inicializar como array vacío
+        let cart = JSON.parse(localStorage.getItem('ventasbronca_cart')) || [];
+        
+        // Referencias a elementos del DOM para mejor rendimiento
+        const cartElements = {
+            items: document.getElementById('cart-items'),
+            count: document.getElementById('cart-count'),
+            countNav: document.getElementById('cart-count-nav'),
+            empty: document.getElementById('cart-empty'),
+            summary: document.getElementById('cart-summary'),
+            totalItems: document.getElementById('total-items'),
+            totalPrice: document.getElementById('total-price'),
+            checkoutBtn: document.getElementById('checkout-btn')
+        };
 
-        // Función para guardar carrito en localStorage
+        // ===== FUNCIONES UTILITARIAS =====
+        
+        /**
+         * Guarda el carrito en localStorage
+         * Mantiene la persistencia de datos entre sesiones
+         */
         function saveCart() {
-            localStorage.setItem('cart', JSON.stringify(cart));
+            try {
+                localStorage.setItem('ventasbronca_cart', JSON.stringify(cart));
+            } catch (error) {
+                console.error('Error al guardar el carrito:', error);
+                showNotification('Error al guardar el carrito', 'error');
+            }
         }
 
-        // Actualizar interfaz del carrito
+        /**
+         * Formatea números como moneda chilena
+         * @param {number} amount - Cantidad a formatear
+         * @returns {string} - Cantidad formateada
+         */
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('es-CL', {
+                style: 'currency',
+                currency: 'CLP'
+            }).format(amount);
+        }
+
+        /**
+         * Muestra notificaciones al usuario
+         * @param {string} message - Mensaje a mostrar
+         * @param {string} type - Tipo de notificación (success, error, info)
+         */
+        function showNotification(message, type = 'success') {
+            // Crear elemento de notificación
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = 'top: 100px; right: 20px; z-index: 1060; min-width: 300px;';
+            
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+            
+            // Agregar al body y remover automáticamente después de 3 segundos
+            document.body.appendChild(notification);
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+
+        // ===== FUNCIONES DEL CARRITO =====
+        
+        /**
+         * Actualiza la interfaz del carrito con los productos actuales
+         * Maneja la visualización de productos, contadores y totales
+         */
         function updateCart() {
-            cartItems.innerHTML = '';
+            // Limpiar contenido anterior
+            cartElements.items.innerHTML = '';
+            
             let totalItems = 0;
+            let totalPrice = 0;
 
+            // Verificar si el carrito está vacío
             if (cart.length === 0) {
-                cartEmpty.style.display = 'block';
-                checkoutBtn.disabled = true;
+                cartElements.empty.style.display = 'block';
+                cartElements.summary.classList.add('d-none');
+                cartElements.checkoutBtn.disabled = true;
             } else {
-                cartEmpty.style.display = 'none';
-                checkoutBtn.disabled = false;
+                cartElements.empty.style.display = 'none';
+                cartElements.summary.classList.remove('d-none');
+                cartElements.checkoutBtn.disabled = false;
 
+                // Generar HTML para cada producto en el carrito
                 cart.forEach(item => {
                     totalItems += item.quantity;
+                    totalPrice += item.price * item.quantity;
 
-                    const li = document.createElement('li');
-                    li.className = 'list-group-item d-flex justify-content-between align-items-center';
-                    li.innerHTML = `
-                        <div>
-                            <strong>${item.name}</strong><br>
-                            <small>SKU: ${item.sku}</small><br>
-                            <small>Cantidad: ${item.quantity} × $${item.price.toLocaleString('es-CL')}</small>
-                        </div>
-                        <div>
-                            <button class="btn btn-sm btn-outline-secondary modify-qty" data-id="${item.id}" data-change="-1">−</button>
-                            <button class="btn btn-sm btn-outline-secondary modify-qty ms-1" data-id="${item.id}" data-change="1">+</button>
-                            <button class="btn btn-sm btn-danger delete-item ms-2" data-id="${item.id}">🗑️</button>
+                    const listItem = document.createElement('li');
+                    listItem.className = 'list-group-item';
+                    listItem.innerHTML = `
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">${item.name}</h6>
+                                <small class="text-muted">SKU: ${item.sku}</small>
+                                <div class="mt-2">
+                                    <span class="badge bg-primary">${item.quantity} × ${formatCurrency(item.price)}</span>
+                                    <span class="fw-bold ms-2">${formatCurrency(item.price * item.quantity)}</span>
+                                </div>
+                            </div>
+                            <div class="btn-group-vertical btn-group-sm ms-3" role="group">
+                                <button class="btn btn-outline-secondary modify-qty" 
+                                        data-id="${item.id}" data-change="1" 
+                                        aria-label="Aumentar cantidad">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                                <button class="btn btn-outline-secondary modify-qty" 
+                                        data-id="${item.id}" data-change="-1" 
+                                        aria-label="Disminuir cantidad">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button class="btn btn-outline-danger delete-item" 
+                                        data-id="${item.id}" 
+                                        aria-label="Eliminar producto">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
                         </div>
                     `;
-                    cartItems.appendChild(li);
+                    cartElements.items.appendChild(listItem);
                 });
+
+                // Actualizar totales
+                cartElements.totalItems.textContent = totalItems;
+                cartElements.totalPrice.textContent = formatCurrency(totalPrice);
             }
 
-            cartCount.textContent = totalItems;
+            // Actualizar contadores en la UI
+            cartElements.count.textContent = totalItems;
+            if (cartElements.countNav) {
+                cartElements.countNav.textContent = totalItems;
+            }
+
+            // Guardar en localStorage
             saveCart();
         }
 
-        // Escuchar clics en botones "Añadir al carrito"
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => {
-                const id = button.getAttribute('data-id');
-                const sku = button.getAttribute('data-sku');
-                const name = button.getAttribute('data-name');
-                const price = parseInt(button.getAttribute('data-price'));
-                const quantityInput = button.parentElement.querySelector('.qty-input');
-                const quantity = parseInt(quantityInput.value) || 1;
-
-                const existingItem = cart.find(item => item.id === id);
-                if (existingItem) {
-                    existingItem.quantity += quantity;
-                } else {
-                    cart.push({ id, sku, name, price, quantity });
-                }
-
-                updateCart();
-                quantityInput.value = 1;
-                alert(`${quantity} ${name}(s) agregado(s) al carrito.`);
-            });
-        });
-
-        // Modificar cantidad o eliminar desde el modal
-        cartItems.addEventListener('click', (e) => {
-            const id = e.target.getAttribute('data-id');
-            const item = cart.find(i => i.id === id);
-
-            if (!item) return;
-
-            if (e.target.classList.contains('modify-qty')) {
-                const change = parseInt(e.target.getAttribute('data-change'));
-                item.quantity += change;
-                if (item.quantity <= 0) {
-                    if (confirm(`¿Eliminar ${item.name} del carrito?`)) {
-                        cart = cart.filter(i => i.id !== id);
-                    } else {
-                        item.quantity = 1;
-                    }
-                }
+        /**
+         * Agrega un producto al carrito
+         * @param {Object} product - Datos del producto a agregar
+         */
+        function addToCart(product) {
+            // Validar datos del producto
+            if (!product.id || !product.name || !product.price) {
+                showNotification('Error: Datos del producto incompletos', 'error');
+                return;
             }
 
-            if (e.target.classList.contains('delete-item')) {
+            // Buscar si el producto ya existe en el carrito
+            const existingItem = cart.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += product.quantity;
+                showNotification(`Se agregaron ${product.quantity} ${product.name}(s) más al carrito`, 'info');
+            } else {
+                cart.push(product);
+                showNotification(`${product.name} agregado al carrito`, 'success');
+            }
+
+            updateCart();
+        }
+
+        /**
+         * Modifica la cantidad de un producto en el carrito
+         * @param {string} productId - ID del producto
+         * @param {number} change - Cambio en la cantidad (+1 o -1)
+         */
+        function modifyQuantity(productId, change) {
+            const item = cart.find(i => i.id === productId);
+            if (!item) return;
+
+            item.quantity += change;
+
+            if (item.quantity <= 0) {
                 if (confirm(`¿Eliminar ${item.name} del carrito?`)) {
-                    cart = cart.filter(i => i.id !== id);
+                    removeFromCart(productId);
+                } else {
+                    item.quantity = 1;
                 }
             }
 
             updateCart();
+        }
+
+        /**
+         * Elimina un producto del carrito
+         * @param {string} productId - ID del producto a eliminar
+         */
+        function removeFromCart(productId) {
+            const item = cart.find(i => i.id === productId);
+            if (item && confirm(`¿Eliminar ${item.name} del carrito?`)) {
+                cart = cart.filter(i => i.id !== productId);
+                updateCart();
+                showNotification('Producto eliminado del carrito', 'info');
+            }
+        }
+
+        // ===== EVENT LISTENERS =====
+        
+        /**
+         * Event listener para botones "Añadir al carrito"
+         */
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.add-to-cart')) {
+                const button = e.target.closest('.add-to-cart');
+                const quantityInput = button.parentElement.querySelector('.qty-input');
+                
+                // Validar cantidad
+                const quantity = parseInt(quantityInput.value) || 1;
+                if (quantity < 1 || quantity > 10) {
+                    showNotification('La cantidad debe estar entre 1 y 10', 'error');
+                    quantityInput.value = 1;
+                    return;
+                }
+
+                // Crear objeto producto
+                const product = {
+                    id: button.getAttribute('data-id'),
+                    sku: button.getAttribute('data-sku'),
+                    name: button.getAttribute('data-name'),
+                    price: parseInt(button.getAttribute('data-price')),
+                    quantity: quantity
+                };
+
+                addToCart(product);
+                quantityInput.value = 1; // Resetear cantidad
+            }
         });
 
-        // Finalizar pedido: Enviar por WhatsApp
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) return;
+        /**
+         * Event listener para modificar cantidades y eliminar productos del carrito
+         */
+        cartElements.items.addEventListener('click', function(e) {
+            const productId = e.target.closest('button')?.getAttribute('data-id');
+            if (!productId) return;
 
-            let message = "Hola, necesito adquirir los siguientes productos:%0A%0A";
+            if (e.target.closest('.modify-qty')) {
+                const change = parseInt(e.target.closest('button').getAttribute('data-change'));
+                modifyQuantity(productId, change);
+            } else if (e.target.closest('.delete-item')) {
+                removeFromCart(productId);
+            }
+        });
+
+        /**
+         * Event listener para finalizar pedido por WhatsApp
+         */
+        cartElements.checkoutBtn.addEventListener('click', function() {
+            if (cart.length === 0) {
+                showNotification('El carrito está vacío', 'error');
+                return;
+            }
+
+            // Generar mensaje para WhatsApp
+            let message = "¡Hola! Me interesa adquirir los siguientes productos:%0A%0A";
+            let totalPrice = 0;
+
             cart.forEach(item => {
-                message += `- ${item.name} (Cantidad: ${item.quantity})%0A`;
+                const subtotal = item.price * item.quantity;
+                totalPrice += subtotal;
+                message += `• ${item.name}%0A`;
+                message += `  Cantidad: ${item.quantity}%0A`;
+                message += `  Precio unitario: ${formatCurrency(item.price)}%0A`;
+                message += `  Subtotal: ${formatCurrency(subtotal)}%0A%0A`;
             });
-            message += "%0A¿Están disponibles? Gracias.";
 
+            message += `TOTAL: ${formatCurrency(totalPrice)}%0A%0A`;
+            message += "¿Están disponibles? ¡Gracias!";
+
+            // Abrir WhatsApp con el mensaje
             const phoneNumber = "56961790214";
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
-
+            
             window.open(whatsappURL, '_blank');
+            
+            // Mostrar confirmación
+            showNotification('Redirigiendo a WhatsApp...', 'success');
         });
 
-        // Inicializar carrito
+        /**
+         * Validación de inputs de cantidad
+         */
+        document.addEventListener('input', function(e) {
+            if (e.target.classList.contains('qty-input')) {
+                const value = parseInt(e.target.value);
+                if (value < 1) e.target.value = 1;
+                if (value > 10) e.target.value = 10;
+            }
+        });
+
+        // ===== INICIALIZACIÓN =====
+        
+        /**
+         * Inicializar la aplicación cuando el DOM esté listo
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCart();
+            console.log('Sistema de carrito VentasBronca inicializado correctamente');
+        });
+
+        // Inicializar carrito al cargar la página
         updateCart();
     </script>
 
