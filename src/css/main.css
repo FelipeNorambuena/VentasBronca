@@ -1,0 +1,733 @@
+/* ===============================
+   VENTASBRONCA - HOJA DE ESTILOS PRINCIPAL
+   =============================== 
+   
+   Archivo: estilo.css
+   Descripción: Estilos personalizados para la tienda de productos tácticos VentasBronca
+   Tecnologías: CSS3, Bootstrap 5, Responsive Design
+   Autor: VentasBronca Team
+   Fecha: 2025
+*/
+
+/* ===============================
+   RESET Y CONFIGURACIÓN BASE
+   =============================== */
+
+/* Aplicar box-sizing a todos los elementos para un mejor control del layout */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Configuración del body principal */
+body {
+    margin: 0; /* Elimina el margen por defecto del navegador */
+    padding: 0; /* Elimina el padding por defecto del navegador */
+    
+    /* Imagen de fondo con patrón táctico */
+    background-image: url('../../src/assets/images/fondo/fondo-tactico.svg');
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+    
+    /* Configuración de altura y tipografía */
+    min-height: 100vh; /* Asegura que el body ocupe al menos el alto de la ventana */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente principal optimizada */
+    
+    /* Espacio para la barra de navegación fija */
+    padding-top: 76px; /* Ajustado para la altura de la navbar */
+    
+    /* Configuración de línea base y colores */
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+    color: #333; /* Color de texto por defecto */
+}
+
+/* ===============================
+   NAVEGACIÓN Y HEADER
+   =============================== */
+
+/* Estilos para el logo en la navegación */
+.logo-img {
+    height: 45px; /* Altura fija del logo */
+    width: auto; /* Mantiene la proporción */
+    border-radius: 8px; /* Bordes redondeados */
+    object-fit: contain; /* Mantiene la proporción sin distorsión */
+    transition: transform 0.3s ease; /* Animación suave al hover */
+}
+
+.logo-img:hover {
+    transform: scale(1.05); /* Efecto de zoom ligero al pasar el mouse */
+}
+
+/* Texto de la marca junto al logo */
+.brand-text {
+    font-weight: 700; /* Texto en negrita */
+    font-size: 1.25rem; /* Tamaño de fuente incrementado */
+    color: #2c3e50; /* Color oscuro profesional */
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    backdrop-filter: blur(10px); /* Efecto de desenfoque para el fondo */
+    background-color: rgba(248, 249, 250, 0.95) !important; /* Fondo semi-transparente */
+    border-bottom: 2px solid #e9ecef; /* Borde inferior sutil */
+    transition: all 0.3s ease; /* Transición suave para cambios */
+}
+
+/* Mejoras en los enlaces de navegación */
+.navbar-nav .nav-link {
+    font-weight: 500; /* Peso medio de fuente */
+    transition: all 0.3s ease; /* Transición suave */
+    border-radius: 6px; /* Bordes redondeados */
+    margin: 0 2px; /* Espacio entre enlaces */
+    padding: 8px 12px !important; /* Padding personalizado */
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Fondo azul suave al hover */
+    transform: translateY(-1px); /* Efecto de elevación */
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #007bff; /* Fondo azul para enlace activo */
+    color: white !important; /* Texto blanco */
+    font-weight: 600; /* Peso de fuente mayor */
+}
+
+/* Estilos para el menú desplegable */
+.dropdown-menu {
+    border: none; /* Sin borde */
+    border-radius: 12px; /* Bordes muy redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo semi-transparente */
+    margin-top: 8px; /* Separación del elemento padre */
+}
+
+.dropdown-item {
+    padding: 12px 20px; /* Padding generoso */
+    transition: all 0.3s ease; /* Transición suave */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 2px 8px; /* Margen entre elementos */
+}
+
+.dropdown-item:hover {
+    background-color: #007bff; /* Fondo azul al hover */
+    color: white; /* Texto blanco */
+    transform: translateX(5px); /* Efecto de deslizamiento */
+}
+
+/* ===============================
+   CONTENIDO PRINCIPAL
+   =============================== */
+
+/* Espaciado para el contenido principal */
+.main-content {
+    padding-top: 0; /* Sin padding superior adicional */
+}
+
+/* ===============================
+   SECCIÓN HERO - CARRUSEL
+   =============================== */
+
+.hero-section {
+    margin-bottom: 4rem; /* Espacio inferior generoso */
+}
+
+/* Imágenes del carrusel principal */
+.carousel-image {
+    height: 500px; /* Altura fija del carrusel */
+    object-fit: cover; /* Recorta la imagen manteniendo proporción */
+    object-position: center; /* Centra la imagen */
+    border-radius: 0 0 20px 20px; /* Bordes redondeados inferiores */
+}
+
+/* Mejoras en las leyendas del carrusel */
+.carousel-caption {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)); /* Gradiente de fondo */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 2rem; /* Padding generoso */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+}
+
+.carousel-caption h1,
+.carousel-caption h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para mejorar legibilidad */
+    margin-bottom: 1rem; /* Espacio inferior */
+}
+
+.carousel-caption p {
+    font-size: 1.1rem; /* Tamaño de fuente incrementado */
+    margin-bottom: 1.5rem; /* Espacio inferior */
+}
+
+/* Botones en el carrusel */
+.carousel-caption .btn {
+    padding: 12px 30px; /* Padding generoso */
+    font-size: 1.1rem; /* Tamaño de fuente incrementado */
+    font-weight: 600; /* Peso de fuente mayor */
+    border-radius: 25px; /* Bordes muy redondeados */
+    transition: all 0.3s ease; /* Transición suave */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    border: 2px solid transparent; /* Borde transparente inicial */
+}
+
+.carousel-caption .btn:hover {
+    transform: translateY(-3px) scale(1.05); /* Efecto de elevación y zoom */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Sombra pronunciada */
+}
+
+/* ===============================
+   SECCIÓN DE PRODUCTOS
+   =============================== */
+
+.products-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.8)); /* Gradiente de fondo */
+    border-radius: 30px 30px 0 0; /* Bordes redondeados superiores */
+    margin-top: -20px; /* Solapamiento con el carrusel */
+    padding-top: 3rem; /* Padding superior adicional */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+}
+
+/* Título de la sección de productos */
+.products-section h2 {
+    color: #2c3e50; /* Color oscuro profesional */
+    position: relative; /* Para el pseudo-elemento */
+}
+
+/* Línea decorativa bajo el título */
+.products-section hr {
+    background: linear-gradient(90deg, #007bff, #0056b3); /* Gradiente azul */
+    border: none; /* Sin borde por defecto */
+    opacity: 1; /* Completamente opaca */
+}
+
+/* ===============================
+   TARJETAS DE PRODUCTOS
+   =============================== */
+
+/* Estilos base para las tarjetas de productos */
+.product-card {
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    border: none; /* Sin borde por defecto */
+    border-radius: 15px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta contenido que se desborde */
+    background: rgba(255, 255, 255, 0.95); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    position: relative; /* Para elementos posicionados absolutamente */
+}
+
+/* Efecto hover en las tarjetas */
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02); /* Elevación y zoom ligero */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Sombra pronunciada */
+    border: 2px solid #007bff; /* Borde azul al hover */
+}
+
+/* Imágenes de productos */
+.product-image {
+    height: 250px; /* Altura fija */
+    object-fit: cover; /* Recorta manteniendo proporción */
+    object-position: center; /* Centra la imagen */
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover en imágenes de productos */
+.product-card:hover .product-image {
+    transform: scale(1.05); /* Zoom ligero en la imagen */
+}
+
+/* Contenedor para productos con una sola imagen */
+.single-product-image {
+    overflow: hidden; /* Oculta el desbordamiento del zoom */
+    border-radius: 15px 15px 0 0; /* Bordes redondeados superiores */
+}
+
+/* Carrusel de productos */
+.product-carousel {
+    position: relative; /* Para posicionar elementos hijos */
+}
+
+/* Indicador de múltiples imágenes */
+.product-image-indicator {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 10px; /* Distancia desde arriba */
+    right: 10px; /* Distancia desde la derecha */
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    color: white; /* Texto blanco */
+    padding: 5px 8px; /* Padding interno */
+    border-radius: 15px; /* Bordes redondeados */
+    font-size: 0.8rem; /* Tamaño de fuente pequeño */
+    z-index: 10; /* Por encima de otros elementos */
+}
+
+/* Controles del carrusel de productos */
+.product-carousel .carousel-control-prev,
+.product-carousel .carousel-control-next {
+    width: 40px; /* Ancho fijo */
+    height: 40px; /* Alto fijo */
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    border-radius: 50%; /* Forma circular */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Ajuste fino del centrado */
+    opacity: 0; /* Invisible por defecto */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Mostrar controles al hover en la tarjeta */
+.product-card:hover .carousel-control-prev,
+.product-card:hover .carousel-control-next {
+    opacity: 1; /* Visible al hover */
+}
+
+/* Posicionamiento específico de controles */
+.product-carousel .carousel-control-prev {
+    left: 10px; /* Distancia desde la izquierda */
+}
+
+.product-carousel .carousel-control-next {
+    right: 10px; /* Distancia desde la derecha */
+}
+
+/* ===============================
+   INFORMACIÓN DE PRODUCTOS
+   =============================== */
+
+/* Metadatos del producto */
+.product-meta {
+    border-top: 1px solid #e9ecef; /* Línea separadora superior */
+    padding-top: 0.75rem; /* Padding superior */
+}
+
+/* Sección de precios */
+.price-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Gradiente de fondo */
+    padding: 1rem; /* Padding interno */
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center; /* Texto centrado */
+    border: 2px solid #007bff; /* Borde azul */
+}
+
+/* Precio principal */
+.price-section .h4 {
+    margin-bottom: 0.25rem; /* Espacio inferior reducido */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* ===============================
+   CONTROLES DE CANTIDAD Y BOTONES
+   =============================== */
+
+/* Input de cantidad */
+.qty-input {
+    text-align: center; /* Texto centrado */
+    font-weight: 600; /* Peso de fuente mayor */
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+.qty-input:focus {
+    border-color: #0056b3; /* Color de borde más oscuro al focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra azul al focus */
+}
+
+/* Botones de agregar al carrito */
+.add-to-cart {
+    font-weight: 600; /* Peso de fuente mayor */
+    border-radius: 25px; /* Bordes muy redondeados */
+    padding: 10px 15px; /* Padding interno */
+    transition: all 0.3s ease; /* Transición suave */
+    position: relative; /* Para efectos adicionales */
+    overflow: hidden; /* Oculta efectos que se desborden */
+}
+
+.add-to-cart:hover {
+    transform: translateY(-2px); /* Elevación ligera */
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4); /* Sombra azul */
+}
+
+/* Efecto de ondas en botones */
+.add-to-cart::before {
+    content: ''; /* Contenido vacío */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    width: 0; /* Ancho inicial */
+    height: 0; /* Alto inicial */
+    background: rgba(255, 255, 255, 0.3); /* Fondo blanco semi-transparente */
+    border-radius: 50%; /* Forma circular */
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+    transition: width 0.6s, height 0.6s; /* Transición de expansión */
+}
+
+.add-to-cart:active::before {
+    width: 300px; /* Ancho final del efecto */
+    height: 300px; /* Alto final del efecto */
+}
+
+/* ===============================
+   CARRITO FLOTANTE
+   =============================== */
+
+/* Contenedor del carrito flotante */
+.floating-cart {
+    position: fixed; /* Posición fija en pantalla */
+    bottom: 20px; /* Distancia desde abajo */
+    right: 20px; /* Distancia desde la derecha */
+    z-index: 1050; /* Por encima de otros elementos */
+}
+
+/* Botón del carrito flotante */
+#cart-btn {
+    transition: all 0.3s ease; /* Transición suave */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra inicial */
+}
+
+#cart-btn:hover {
+    transform: scale(1.1) rotate(5deg); /* Zoom y rotación ligera */
+    box-shadow: 0 8px 30px rgba(40, 167, 69, 0.4); /* Sombra verde más pronunciada */
+}
+
+/* Badge del contador del carrito */
+#cart-count {
+    font-size: 0.75rem; /* Tamaño de fuente pequeño */
+    font-weight: 700; /* Peso de fuente mayor */
+    min-width: 20px; /* Ancho mínimo */
+    height: 20px; /* Alto fijo */
+    line-height: 1.2; /* Altura de línea ajustada */
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+
+/* Estilos del footer */
+.footer {
+    background: linear-gradient(135deg, #2c3e50, #34495e) !important; /* Gradiente oscuro */
+    border-top: 3px solid #007bff; /* Borde superior azul */
+    margin-top: auto; /* Empuja el footer hacia abajo */
+}
+
+/* Logo en el footer */
+.footer-logo {
+    height: 40px; /* Altura fija */
+    width: auto; /* Mantiene proporción */
+    border-radius: 6px; /* Bordes redondeados */
+}
+
+/* Enlaces en el footer */
+.footer a:hover {
+    color: #007bff !important; /* Color azul al hover */
+    transform: translateX(5px); /* Deslizamiento ligero */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Enlaces de redes sociales */
+.social-links a {
+    transition: all 0.3s ease; /* Transición suave */
+    border-radius: 50%; /* Forma circular */
+    padding: 10px; /* Padding interno */
+    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    margin-right: 0.5rem; /* Espacio entre enlaces */
+}
+
+.social-links a:hover {
+    background: #007bff; /* Fondo azul al hover */
+    transform: translateY(-3px) scale(1.1); /* Elevación y zoom */
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4); /* Sombra azul */
+}
+
+/* ===============================
+   MODAL DEL CARRITO
+   =============================== */
+
+/* Mejoras en el modal del carrito */
+.modal-content {
+    border-radius: 15px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); /* Sombra pronunciada */
+}
+
+.modal-header {
+    border-radius: 15px 15px 0 0; /* Bordes redondeados superiores */
+    border-bottom: none; /* Sin borde inferior */
+}
+
+.modal-footer {
+    border-radius: 0 0 15px 15px; /* Bordes redondeados inferiores */
+    border-top: 1px solid #e9ecef; /* Borde superior sutil */
+    background: #f8f9fa; /* Fondo gris claro */
+}
+
+/* ===============================
+   RESPONSIVE DESIGN - MEDIA QUERIES
+   =============================== */
+
+/* Pantallas medianas y menores (tablets) */
+@media (max-width: 768px) {
+    /* Ajustes del body para móviles */
+    body {
+        padding-top: 70px; /* Reduce el padding superior */
+        background-attachment: scroll; /* Cambia a scroll para mejor rendimiento en móviles */
+    }
+    
+    /* Logo más pequeño en móviles */
+    .logo-img {
+        height: 35px; /* Altura reducida */
+    }
+    
+    /* Carrusel más pequeño en móviles */
+    .carousel-image {
+        height: 300px; /* Altura reducida */
+    }
+    
+    /* Leyendas del carrusel ocultas en móviles */
+    .carousel-caption {
+        display: none !important; /* Oculta completamente */
+    }
+    
+    /* Tarjetas de productos adaptadas */
+    .product-image {
+        height: 200px; /* Altura reducida */
+    }
+    
+    /* Botón flotante más pequeño */
+    #cart-btn {
+        width: 50px; /* Ancho reducido */
+        height: 50px; /* Alto reducido */
+        bottom: 15px; /* Posición ajustada */
+        right: 15px; /* Posición ajustada */
+    }
+    
+    /* Ajustes en la sección de productos */
+    .products-section {
+        padding-left: 1rem; /* Padding lateral reducido */
+        padding-right: 1rem; /* Padding lateral reducido */
+    }
+    
+    /* Espaciado reducido en el footer */
+    .footer {
+        text-align: center; /* Centrar contenido en móviles */
+    }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 576px) {
+    /* Padding superior aún menor */
+    body {
+        padding-top: 65px;
+    }
+    
+    /* Marca oculta en pantallas muy pequeñas */
+    .brand-text {
+        display: none;
+    }
+    
+    /* Carrusel más compacto */
+    .carousel-image {
+        height: 250px;
+    }
+    
+    /* Botones más compactos */
+    .add-to-cart {
+        padding: 8px 12px; /* Padding reducido */
+        font-size: 0.9rem; /* Tamaño de fuente menor */
+    }
+    
+    /* Input de cantidad más pequeño */
+    .qty-input {
+        width: 60px !important; /* Ancho reducido */
+    }
+    
+    /* Modal de carrito en pantalla completa en móviles */
+    .modal-dialog {
+        margin: 0; /* Sin margen */
+        max-width: 100%; /* Ancho completo */
+        height: 100vh; /* Alto completo */
+    }
+    
+    .modal-content {
+        height: 100%; /* Alto completo */
+        border-radius: 0; /* Sin bordes redondeados */
+    }
+}
+
+/* Pantallas extra grandes (desktops grandes) */
+@media (min-width: 1200px) {
+    /* Carrusel más alto en pantallas grandes */
+    .carousel-image {
+        height: 600px;
+    }
+    
+    /* Contenedor más ancho */
+    .container {
+        max-width: 1140px; /* Ancho máximo incrementado */
+    }
+    
+    /* Productos más grandes */
+    .product-image {
+        height: 280px; /* Altura incrementada */
+    }
+}
+
+/* ===============================
+   UTILIDADES Y EFECTOS ESPECIALES
+   =============================== */
+
+/* Animación de fade-in para elementos */
+.fade-in {
+    opacity: 0; /* Invisible inicialmente */
+    animation: fadeIn 0.6s ease-in-out forwards; /* Animación de aparición */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Desde invisible */
+        transform: translateY(20px); /* Desde abajo */
+    }
+    to {
+        opacity: 1; /* Hasta visible */
+        transform: translateY(0); /* Hasta posición normal */
+    }
+}
+
+/* Efecto de pulso para elementos importantes */
+.pulse {
+    animation: pulse 2s infinite; /* Animación de pulso infinita */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Tamaño normal */
+    }
+    50% {
+        transform: scale(1.05); /* Ligeramente más grande */
+    }
+    100% {
+        transform: scale(1); /* Vuelta al tamaño normal */
+    }
+}
+
+/* Clase para texto destacado */
+.text-highlight {
+    background: linear-gradient(120deg, #007bff, #0056b3); /* Gradiente azul */
+    -webkit-background-clip: text; /* Recorta el fondo al texto */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el gradiente */
+    background-clip: text; /* Soporte estándar */
+    font-weight: 700; /* Peso de fuente mayor */
+}
+
+/* Loader/spinner personalizado */
+.custom-loader {
+    border: 4px solid #f3f3f3; /* Borde gris claro */
+    border-top: 4px solid #007bff; /* Borde superior azul */
+    border-radius: 50%; /* Forma circular */
+    width: 40px; /* Ancho */
+    height: 40px; /* Alto */
+    animation: spin 1s linear infinite; /* Animación de rotación */
+    margin: 20px auto; /* Centrado con margen */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); } /* Rotación inicial */
+    100% { transform: rotate(360deg); } /* Rotación completa */
+}
+
+/* ===============================
+   MEJORAS DE ACCESIBILIDAD
+   =============================== */
+
+/* Mejora el contraste para elementos focus */
+:focus {
+    outline: 2px solid #007bff; /* Contorno azul */
+    outline-offset: 2px; /* Separación del contorno */
+    border-radius: 4px; /* Bordes redondeados del contorno */
+}
+
+/* Oculta elementos solo visualmente (para lectores de pantalla) */
+.sr-only {
+    position: absolute; /* Posicionamiento absoluto */
+    width: 1px; /* Ancho mínimo */
+    height: 1px; /* Alto mínimo */
+    padding: 0; /* Sin padding */
+    margin: -1px; /* Margen negativo */
+    overflow: hidden; /* Oculta el contenido */
+    clip: rect(0, 0, 0, 0); /* Recorta el elemento */
+    white-space: nowrap; /* Sin salto de línea */
+    border: 0; /* Sin borde */
+}
+
+/* Mejora la visibilidad de enlaces */
+a:focus,
+button:focus {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Sombra azul al focus */
+    transition: box-shadow 0.15s ease-in-out; /* Transición suave */
+}
+
+/* ===============================
+   MODO OSCURO (OPCIONAL)
+   =============================== */
+
+/* Variables CSS para fácil mantenimiento de colores */
+:root {
+    --primary-color: #007bff; /* Color primario azul */
+    --secondary-color: #6c757d; /* Color secundario gris */
+    --success-color: #28a745; /* Color de éxito verde */
+    --danger-color: #dc3545; /* Color de peligro rojo */
+    --warning-color: #ffc107; /* Color de advertencia amarillo */
+    --info-color: #17a2b8; /* Color de información cian */
+    --light-color: #f8f9fa; /* Color claro */
+    --dark-color: #343a40; /* Color oscuro */
+    --white-color: #ffffff; /* Blanco */
+    --black-color: #000000; /* Negro */
+}
+
+/* Configuración para modo oscuro (usando media query) */
+@media (prefers-color-scheme: dark) {
+    /* Solo aplicar si el usuario prefiere modo oscuro */
+    .dark-mode {
+        --bg-color: #1a1a1a; /* Fondo oscuro */
+        --text-color: #e0e0e0; /* Texto claro */
+        --card-bg: rgba(255, 255, 255, 0.1); /* Fondo de tarjetas semi-transparente */
+    }
+}
+
+/* ===============================
+   PRINT STYLES - ESTILOS DE IMPRESIÓN
+   =============================== */
+
+@media print {
+    /* Ocultar elementos no necesarios en impresión */
+    .navbar,
+    .floating-cart,
+    .modal,
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none !important;
+    }
+    
+    /* Ajustar body para impresión */
+    body {
+        background: white !important; /* Fondo blanco */
+        color: black !important; /* Texto negro */
+        padding-top: 0 !important; /* Sin padding superior */
+    }
+    
+    /* Ajustar tarjetas para impresión */
+    .product-card {
+        break-inside: avoid; /* Evita cortar tarjetas entre páginas */
+        margin-bottom: 20px; /* Espacio entre tarjetas */
+        border: 1px solid #000 !important; /* Borde negro */
+        box-shadow: none !important; /* Sin sombra */
+    }
+    
+    /* Mostrar URLs de enlaces en impresión */
+    a::after {
+        content: " (" attr(href) ")"; /* Muestra la URL después del enlace */
+        font-size: 0.8em; /* Tamaño de fuente menor */
+        color: #666; /* Color gris */
+    }
+}
