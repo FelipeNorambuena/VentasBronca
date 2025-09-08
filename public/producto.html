@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de productos VentasBronca">
+    <title>Productos | VentasBronca</title>
+
+    <link rel="icon" type="image/jpg" href="../src/assets/images/logo.jpg">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Estilos del sitio -->
+    <link rel="stylesheet" href="../src/css/main.css">
+</head>
+<body>
+    <!-- Header / Navbar (mismo estilo que index) -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" role="navigation" aria-label="Navegación principal">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex flex-column align-items-center justify-content-center me-4" href="index.html" aria-label="VentasBronca - Inicio" style="min-width:90px;">
+                    <img src="../src/assets/images/logo.jpg" alt="Logo VentasBronca" class="logo-img mb-1" style="height:48px;width:auto;">
+                    <span class="brand-text fw-bold" style="font-size:1.1rem;">VentasBronca</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                        aria-controls="navbarMain" aria-expanded="false" aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-shopping-bag me-1"></i>Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html"><i class="fas fa-users me-1"></i>Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto"><i class="fas fa-envelope me-1"></i>Contacto</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex ms-lg-3 me-lg-3 my-2 my-lg-0" role="search" aria-label="Búsqueda de productos">
+                        <div class="input-group">
+                            <input class="form-control" type="search" placeholder="Buscar productos..." aria-label="Buscar productos" required>
+                            <button class="btn btn-outline-success" type="submit" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <!-- Botón carrito en navbar (desktop) -->
+                    <button class="btn btn-outline-primary d-none d-lg-flex align-items-center me-2"
+                            data-bs-toggle="modal" data-bs-target="#cartModal" aria-label="Ver carrito de compras">
+                        <i class="fas fa-shopping-cart me-1"></i>
+                        Carrito <span id="cart-count-nav" class="badge bg-danger ms-1">0</span>
+                    </button>
+                    <div class="d-flex align-items-center ms-auto">
+                        <a href="login.html" class="btn btn-outline-secondary btn-sm px-3 py-1 me-2" style="font-size:0.95rem;">
+                            <i class="fas fa-user me-1"></i>Login
+                        </a>
+                        <a href="registro.html" class="btn btn-outline-success btn-sm px-3 py-1 d-none d-lg-inline" style="font-size:0.95rem;">
+                            <i class="fas fa-user-plus me-1"></i>Registrarse
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content" tabindex="-1">
+        <section class="products-section py-5">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-12 text-center">
+                        <h1 class="display-6 fw-bold mb-2">Catálogo de Productos</h1>
+                        <p class="text-muted">Explora nuestra selección de productos tácticos, militares, camping y más</p>
+                        <hr class="mx-auto" style="width: 100px; height: 3px;">
+                    </div>
+                </div>
+
+                <!-- Grid generado por JS -->
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4" id="catalog-grid" aria-live="polite"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Overlay (se controla por JS) -->
+    <div id="lightbox-overlay" class="lightbox-overlay d-none" role="dialog" aria-modal="true" aria-label="Vista ampliada de la imagen">
+        <button type="button" class="lightbox-close btn btn-light btn-sm" aria-label="Cerrar vista">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="lightbox-image" class="lightbox-image" alt="Producto ampliado" />
+    </div>
+
+    <!-- Botón flotante de carrito (móviles) -->
+    <div class="floating-cart d-lg-none">
+        <button id="cart-btn" class="btn btn-success btn-lg rounded-circle position-relative" data-bs-toggle="modal" data-bs-target="#cartModal" aria-label="Ver carrito">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
+        </button>
+    </div>
+
+    <!-- Modal Carrito -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">
+                        <i class="fas fa-shopping-cart me-2"></i>Tu Carrito
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-empty" class="text-center text-muted py-4">
+                        <i class="fas fa-shopping-basket fa-2x mb-2"></i>
+                        <p class="mb-0">Tu carrito está vacío</p>
+                    </div>
+                    <ul id="cart-items" class="list-group mb-3"></ul>
+                    <div id="cart-summary" class="d-none">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <strong>Total items:</strong>
+                            <span id="total-items">0</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <strong>Total:</strong>
+                            <span id="total-price">$0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" id="checkout-btn" class="btn btn-success">
+                        <i class="fab fa-whatsapp me-1"></i>Finalizar por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <!-- Script principal -->
+    <script src="../src/js/main.js"></script>
+    <!-- Carrito (reutilizado) -->
+    <script src="../src/js/carrito.js"></script>
+</body>
+</html>

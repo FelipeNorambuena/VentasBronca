@@ -83,6 +83,20 @@ class Utils {
     static generateUniqueId() {
         return Date.now().toString(36) + Math.random().toString(36).substr(2);
     }
+
+    /**
+     * Formatea un número a moneda CLP
+     * @param {number} amount - Monto a formatear
+     * @returns {string} - Texto formateado como CLP
+     */
+    static formatCurrency(amount) {
+        try {
+            return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(amount);
+        } catch {
+            if (isNaN(amount)) return '$0';
+            return `$${Number(amount).toLocaleString('es-CL')}`;
+        }
+    }
 }
 
 // ===== SISTEMA DE VALIDACIÓN DE FORMULARIOS =====
@@ -637,6 +651,11 @@ class App {
         this.searchSystem = new SearchSystem();
         this.smoothScroll = new SmoothScroll();
         this.lazyImageLoader = new LazyImageLoader();
+        this.productCatalog = new ProductCatalog();
+        // Actualizar índice de búsqueda tras renderizar el catálogo
+        if (this.searchSystem && document.getElementById('catalog-grid')) {
+            this.searchSystem.loadProducts?.();
+        }
         
         // Inicializar validadores de formularios
         this.initFormValidators();
@@ -695,6 +714,127 @@ class App {
         // Inicializar popovers
         const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
         popoverTriggerList.map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+    }
+}
+
+// ===== CATÁLOGO PÚBLICO DE PRODUCTOS =====
+
+class ProductCatalog {
+    constructor() {
+        this.grid = document.getElementById('catalog-grid');
+        if (this.grid) {
+            this.products = this.loadAdminProducts();
+            this.render();
+            this.initLightbox();
+        }
+    }
+
+    // Obtiene productos definidos en Administrador/producto.html
+    loadAdminProducts() {
+        return [
+            { sku: 'CHA-001', name: 'Chaleco Táctico', price: 32000, images: ['../src/assets/images/productos/tactico/ChalecoTactico1.jpg','../src/assets/images/productos/tactico/Chalecotactico2.jpg'] },
+            { sku: 'GUA-007', name: 'Guantes Impermeables', price: 11990, images: ['../src/assets/images/productos/tactico/Guantesimpermeables1.jpg'] },
+            { sku: 'GUA-008', name: 'Guantes Impermeables 2', price: 12500, images: ['../src/assets/images/productos/tactico/Guantesimpermeables2.jpg'] },
+            { sku: 'MUL-001', name: 'Multiuso Gerber', price: 25000, images: ['../src/assets/images/productos/tactico/MultiusoGerber.jpg','../src/assets/images/productos/tactico/MultiusoGerber2.jpg','../src/assets/images/productos/tactico/MultiusoGerber3.jpg'] },
+            { sku: 'SOB-006', name: 'Sobaquera para Pistola', price: 15990, images: ['../src/assets/images/productos/militar/SobaqueraPistola1.jpg','../src/assets/images/productos/militar/SobaqueraPistola2.jpg','../src/assets/images/productos/militar/SobaqueraPistola3.jpg'] },
+            { sku: 'SOB-007', name: 'Sobaquera para Pistola 2', price: 16500, images: ['../src/assets/images/productos/militar/SobaqueraPistola2.jpg'] },
+            { sku: 'PLA-005', name: 'Plato Doble Camping', price: 4990, images: ['../src/assets/images/productos/camping/PlatoDoble1.jpg'] },
+            { sku: 'SIL-001', name: 'Silbato Multiuso', price: 2500, images: ['../src/assets/images/productos/otros/SilbatoMulti1.jpg','../src/assets/images/productos/otros/Silvatomulti2.jpg'] }
+        ];
+    }
+
+    formatCurrency(amount) {
+        try { return new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(amount); } catch { return `$${amount.toLocaleString('es-CL')}`; }
+    }
+
+    render() {
+        const cards = this.products.map(p => this.cardTemplate(p)).join('');
+        this.grid.innerHTML = cards;
+        // Eventos para abrir lightbox
+        this.grid.querySelectorAll('[data-lightbox-src]').forEach(img => {
+            img.addEventListener('click', (e) => this.openLightbox(e.currentTarget.getAttribute('data-lightbox-src')));
+        });
+    }
+
+    cardTemplate(product) {
+        const firstImg = product.images[0];
+        const additional = product.images.slice(1);
+        return `
+                <div class="col">
+                    <article class="card h-100 product-card shadow-sm" data-sku="${product.sku}" data-price="${product.price}">
+            ${additional.length ? this.carouselTemplate(product) : `
+            <div class="single-product-image">
+              <img src="${firstImg}" class="card-img-top product-image" alt="${product.name}" loading="lazy" data-lightbox-src="${firstImg}">
+            </div>`}
+            <div class="card-body d-flex flex-column">
+              <h3 class="card-title h5">${product.name}</h3>
+              <span class="d-none" data-sku="${product.sku}" data-price="${product.price}"></span>
+              <div class="product-meta mb-3">
+                <small class="text-muted d-block"><i class="fas fa-barcode me-1"></i>SKU: ${product.sku}</small>
+                <small class="text-success"><i class="fas fa-check-circle me-1"></i>Disponible</small>
+              </div>
+              <div class="price-section mb-3 mt-auto">
+                <span class="h4 text-primary fw-bold">${this.formatCurrency(product.price)}</span>
+                <small class="text-muted d-block">Precio incluye IVA</small>
+              </div>
+                            <div class="d-flex align-items-center gap-2 mt-2">
+                                <input type="number" class="form-control qty-input" value="1" min="1" max="10" aria-label="Cantidad">
+                                <button class="btn btn-success add-to-cart flex-shrink-0"
+                                                data-id="${product.sku}"
+                                                data-sku="${product.sku}"
+                                                data-name="${product.name}"
+                                                data-price="${product.price}">
+                                    <i class="fas fa-cart-plus me-1"></i>Agregar al carrito
+                                </button>
+                            </div>
+            </div>
+          </article>
+        </div>`;
+    }
+
+    carouselTemplate(product) {
+        const carouselId = `carousel-${product.sku}`;
+        const slides = product.images.map((src, idx) => `
+            <div class="carousel-item ${idx===0?'active':''}">
+                <img src="${src}" class="d-block w-100 product-image" alt="${product.name} ${idx+1}" loading="lazy" data-lightbox-src="${src}">
+            </div>`).join('');
+        return `
+        <div id="${carouselId}" class="carousel slide product-carousel" data-bs-ride="false">
+            <div class="carousel-inner">${slides}</div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#${carouselId}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+            <div class="product-image-indicator"><i class="fas fa-images"></i></div>
+        </div>`;
+    }
+
+    initLightbox() {
+        this.overlay = document.getElementById('lightbox-overlay');
+        this.overlayImg = document.getElementById('lightbox-image');
+        this.closeBtn = this.overlay?.querySelector('.lightbox-close');
+        if (!this.overlay) return;
+
+        this.closeBtn.addEventListener('click', () => this.closeLightbox());
+        this.overlay.addEventListener('click', (e) => { if (e.target === this.overlay) this.closeLightbox(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !this.overlay.classList.contains('d-none')) this.closeLightbox(); });
+    }
+
+    openLightbox(src) {
+        if (!this.overlay) return;
+        this.overlayImg.src = src;
+        this.overlay.classList.remove('d-none');
+        document.body.style.overflow = 'hidden';
+    }
+
+    closeLightbox() {
+        this.overlay.classList.add('d-none');
+        this.overlayImg.src = '';
+        document.body.style.overflow = '';
     }
 }
 
