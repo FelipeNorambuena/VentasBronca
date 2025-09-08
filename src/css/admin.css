@@ -1,0 +1,8 @@
+/* Centrado y ancho para el formulario de creación de usuario */
+.admin-crear-form {
+    max-width: 400px;
+    width: 100%;
+}
+body {
+    color: #fff;
+}
