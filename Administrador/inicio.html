@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlaces a hojas de estilo -->
+    <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Título de la página -->
+    <title>VentasBronca - administrador</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="../src/assets/images/logo.jpg">
+
+</head>
+<body>
+    <!-- Sidebar vertical -->
+    <div class="d-flex" style="min-height: 100vh;">
+        <nav class="bg-light border-end shadow-sm d-flex flex-column align-items-center p-3" style="width: 200px; min-height: 100vh;">
+            <!-- Logo -->
+            <a href="inicio.html" class="mb-4 mt-2 d-flex flex-column align-items-center">
+                <img src="../src/assets/images/logo.jpg" alt="Logo VentasBronca" class="logo-img" style="height:48px;">
+            </a>
+            <!-- Iconos de navegación -->
+            <ul class="nav nav-pills flex-column mb-auto w-100 gap-3 align-items-center">
+                <li class="nav-item w-100">
+                    <a href="inicio.html" class="nav-link text-dark d-flex flex-column align-items-center" title="Inicio">
+                        <i class="fas fa-home fa-2x mb-1"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-item w-100">
+                    <a href="usuario.html" class="nav-link text-dark d-flex flex-column align-items-center" title="Usuarios">
+                        <i class="fas fa-user fa-2x mb-1"></i>
+                        <span>Usuarios</span>
+                    </a>
+                </li>
+                <li class="nav-item w-100">
+                    <a href="producto.html" class="nav-link text-dark d-flex flex-column align-items-center" title="Productos">
+                        <i class="fas fa-box-open fa-2x mb-1"></i>
+                        <span>Productos</span>
+                    </a>
+                </li>
+                <li class="nav-item w-100">
+                    <a href="creacion-usuario.html" class="nav-link text-dark d-flex flex-column align-items-center" title="Crear Usuario">
+                        <i class="fas fa-user-plus fa-2x mb-1"></i>
+                        <span>Crear Usuario</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Botones inferiores -->
+            <div class="mt-auto w-100 d-flex flex-column align-items-center gap-3 pb-2">
+                <a href="configuracion.html" class="btn btn-light d-flex flex-column align-items-center" title="Configuración">
+                    <i class="fas fa-cog fa-2x"></i>
+                    <span style="font-size: 0.9rem;">Configuración</span>
+                </a>
+                <a href="perfil.html" class="btn btn-light d-flex flex-column align-items-center" title="Perfil">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    <span style="font-size: 0.9rem;">Perfil</span>
+                </a>
+            </div>
+        </nav>
+        <!-- Contenido principal -->
+        <div class="flex-grow-1" style="padding: 32px 0 0 0;">
+            <div class="alert alert-primary mb-4 mx-4" role="alert">
+                ¡Bienvenido, Administrador! Gestiona usuarios y productos.
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - VentasBronca</title>
+    <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="../src/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/jpg" href="../src/assets/images/logo.jpg">
+</head>
+<body>
+    <!-- Sidebar vertical -->
+    <div class="d-flex" style="min-height: 100vh;">
+        <nav class="bg-light border-end shadow-sm d-flex flex-column align-items-center p-3" style="width: 200px; min-height: 100vh;">
+            <!-- Logo -->
+            <a href="inicio.html" class="mb-4 mt-2 d-flex flex-column align-items-center">
+                <img src="../src/assets/images/logo.jpg" alt="Logo VentasBronca" class="logo-img" style="height:48px;">
+            </a>
+            <!-- Iconos de navegación -->
+            <ul class="nav nav-pills flex-column mb-auto w-100 gap-3 align-items-center">
+                <li class="nav-item w-100">
+                    <a href="inicio.html" class="nav-link text-dark d-flex flex-column align-items-center" title="Inicio">
+                        <i class="fas fa-home fa-2x mb-1"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-item w-100">
+                    <a href="usuario.html" class="nav-link text-dark d-flex flex-column align-items-center" title="Usuarios">
+                        <i class="fas fa-user fa-2x mb-1"></i>
+                        <span>Usuarios</span>
+                    </a>
+                </li>
+                <li class="nav-item w-100">
+                    <a href="producto.html" class="nav-link text-dark d-flex flex-column align-items-center" title="Productos">
+                        <i class="fas fa-box-open fa-2x mb-1"></i>
+                        <span>Productos</span>
+                    </a>
+                </li>
+                <li class="nav-item w-100">
+                    <a href="creacion-usuario.html" class="nav-link text-dark d-flex flex-column align-items-center" title="Crear Usuario">
+                        <i class="fas fa-user-plus fa-2x mb-1"></i>
+                        <span>Crear Usuario</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Botones inferiores -->
+            <div class="mt-auto w-100 d-flex flex-column align-items-center gap-3 pb-2">
+                <a href="configuracion.html" class="btn btn-light d-flex flex-column align-items-center" title="Configuración">
+                    <i class="fas fa-cog fa-2x"></i>
+                    <span style="font-size: 0.9rem;">Configuración</span>
+                </a>
+                <a href="perfil.html" class="btn btn-light d-flex flex-column align-items-center" title="Perfil">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    <span style="font-size: 0.9rem;">Perfil</span>
+                </a>
+            </div>
+        </nav>
+        <!-- Contenido principal -->
+        <div class="flex-grow-1 p-4 text-white">
+            <h1 class="mb-4 text-white"><i class="fas fa-box-open me-2"></i>Gestión de Productos</h1>
+            <div class="table-responsive">
+                <table class="table table-dark table-striped align-middle" id="tablaProductos">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Código</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Stock Crítico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Táctico -->
+                        <tr>
+                            <td><img src="../src/assets/images/productos/tactico/ChalecoTactico1.jpg" alt="ChalecoTactico1" style="width:60px;"></td>
+                            <td>Chaleco Táctico</td>
+                            <td>CHA-001</td>
+                            <td>$32.000</td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="15" min="0"></td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="3" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../src/assets/images/productos/tactico/Chalecotactico2.jpg" alt="Chalecotactico2" style="width:60px;"></td>
+                            <td>Chaleco Táctico 2</td>
+                            <td>CHA-002</td>
+                            <td>$33.000</td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="10" min="0"></td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="2" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../src/assets/images/productos/tactico/Guantesimpermeables1.jpg" alt="Guantesimpermeables1" style="width:60px;"></td>
+                            <td>Guantes Impermeables</td>
+                            <td>GUA-007</td>
+                            <td>$11.990</td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="20" min="0"></td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="5" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../src/assets/images/productos/tactico/Guantesimpermeables2.jpg" alt="Guantesimpermeables2" style="width:60px;"></td>
+                            <td>Guantes Impermeables 2</td>
+                            <td>GUA-008</td>
+                            <td>$12.500</td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="18" min="0"></td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="4" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../src/assets/images/productos/tactico/MultiusoGerber.jpg" alt="MultiusoGerber" style="width:60px;"></td>
+                            <td>Multiuso Gerber</td>
+                            <td>MUL-001</td>
+                            <td>$25.000</td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="8" min="0"></td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="2" min="0"></td>
+                        </tr>
+                        <!-- Militar -->
+                        <tr>
+                            <td><img src="../src/assets/images/productos/militar/SobaqueraPistola1.jpg" alt="SobaqueraPistola1" style="width:60px;"></td>
+                            <td>Sobaquera para Pistola</td>
+                            <td>SOB-006</td>
+                            <td>$15.990</td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="12" min="0"></td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="3" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../src/assets/images/productos/militar/SobaqueraPistola2.jpg" alt="SobaqueraPistola2" style="width:60px;"></td>
+                            <td>Sobaquera para Pistola 2</td>
+                            <td>SOB-007</td>
+                            <td>$16.500</td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="9" min="0"></td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="2" min="0"></td>
+                        </tr>
+                        <!-- Camping -->
+                        <tr>
+                            <td><img src="../src/assets/images/productos/camping/PlatoDoble1.jpg" alt="PlatoDoble1" style="width:60px;"></td>
+                            <td>Plato Doble Camping</td>
+                            <td>PLA-005</td>
+                            <td>$4.990</td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="30" min="0"></td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="8" min="0"></td>
+                        </tr>
+                        <!-- Otros -->
+                        <tr>
+                            <td><img src="../src/assets/images/productos/otros/SilbatoMulti1.jpg" alt="SilbatoMulti1" style="width:60px;"></td>
+                            <td>Silbato Multiuso</td>
+                            <td>SIL-001</td>
+                            <td>$2.500</td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="50" min="0"></td>
+                            <td><input type="number" class="form-control form-control-sm bg-dark text-white border-secondary" value="10" min="0"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
