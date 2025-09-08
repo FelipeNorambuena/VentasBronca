@@ -33,22 +33,21 @@
         <!-- Barra de navegación principal responsiva -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" role="navigation" aria-label="Navegación principal">
             <div class="container-fluid">
-                <!-- Logo/Marca de la tienda -->
-                <a class="navbar-brand d-flex align-items-center" href="#" aria-label="VentasBronca - Inicio">
-                    <img src="../src/assets/images/logo.jpg" alt="Logo VentasBronca" class="logo-img me-2">
-                    <span class="brand-text d-none d-sm-inline">VentasBronca</span>
+                <!-- Logo encima del texto -->
+                <a class="navbar-brand d-flex flex-column align-items-center justify-content-center me-4" href="#" aria-label="VentasBronca - Inicio" style="min-width:90px;">
+                    <img src="../src/assets/images/logo.jpg" alt="Logo VentasBronca" class="logo-img mb-1" style="height:48px;width:auto;">
+                    <span class="brand-text fw-bold" style="font-size:1.1rem;">VentasBronca</span>
                 </a>
-                
+
                 <!-- Botón hamburguesa para dispositivos móviles -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" 
                         aria-controls="navbarMain" aria-expanded="false" aria-label="Abrir menú de navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
-                <!-- Menú de navegación colapsable -->
+
                 <div class="collapse navbar-collapse" id="navbarMain">
                     <!-- Enlaces de navegación principales -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" href="#" aria-current="page">
                                 <i class="fas fa-home me-1"></i>Inicio
@@ -79,25 +78,26 @@
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Ver más</a></li>
                             </ul>
                         </li>
+                        <!-- Botón Nosotros al lado de Categorías -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html">
+                                <i class="fas fa-users me-1"></i>Nosotros
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contacto">
                                 <i class="fas fa-envelope me-1"></i>Contacto
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">
-                                <i class="fas fa-user me-1"></i>Iniciar sesión
-                            </a>
-                        </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-lg-none">
                             <a class="nav-link" href="registro.html">
                                 <i class="fas fa-user-plus me-1"></i>Registrarse
                             </a>
                         </li>
                     </ul>
-                    
+
                     <!-- Barra de búsqueda responsiva -->
-                    <form class="d-flex me-3" role="search" aria-label="Búsqueda de productos">
+                    <form class="d-flex ms-lg-3 me-lg-3 my-2 my-lg-0" role="search" aria-label="Búsqueda de productos">
                         <div class="input-group">
                             <input class="form-control" type="search" placeholder="Buscar productos..." 
                                    aria-label="Buscar productos" required>
@@ -106,13 +106,23 @@
                             </button>
                         </div>
                     </form>
-                    
+
                     <!-- Botón de carrito en la barra de navegación (visible en pantallas grandes) -->
-                    <button class="btn btn-outline-primary d-none d-lg-flex align-items-center" 
+                    <button class="btn btn-outline-primary d-none d-lg-flex align-items-center me-2" 
                             data-bs-toggle="modal" data-bs-target="#cartModal" aria-label="Ver carrito de compras">
                         <i class="fas fa-shopping-cart me-1"></i>
                         Carrito <span id="cart-count-nav" class="badge bg-danger ms-1">0</span>
                     </button>
+
+                    <!-- Botón de login pequeño alineado a la derecha -->
+                    <div class="d-flex align-items-center ms-auto">
+                        <a href="login.html" class="btn btn-outline-secondary btn-sm px-3 py-1 me-2" style="font-size:0.95rem;">
+                            <i class="fas fa-user me-1"></i>Login
+                        </a>
+                        <a href="registro.html" class="btn btn-outline-success btn-sm px-3 py-1 d-none d-lg-inline" style="font-size:0.95rem;">
+                            <i class="fas fa-user-plus me-1"></i>Registrarse
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -508,7 +518,7 @@
                 <div class="col-lg-3 col-md-6 mb-4" id="contacto">
                     <h6 class="fw-bold mb-3">Síguenos</h6>
                     <div class="social-links mb-3">
-                        <a href="https://www.instagram.com/ventas_bronca/" target="_blank" 
+                        <a href="https://www.instagram.com/ventas_bronca/" target="Instagram" 
                            class="text-light me-3" aria-label="Síguenos en Instagram">
                             <img src="../src/assets/icons/instagram.svg" alt="Instagram" style="height:32px;width:32px;">
                         </a>
@@ -615,9 +625,7 @@
         </div>
     </div>
 
-    <!-- ===============================
-         SCRIPTS DE JAVASCRIPT
-         =============================== -->
+    
     <!-- Bootstrap JS (requerido para componentes interactivos) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
@@ -625,332 +633,8 @@
     
     <!-- Script principal de funcionalidades adicionales -->
     <script src="../src/js/main.js"></script>
-    
     <!-- Script personalizado para funcionalidad del carrito -->
-    <script>
-        /**
-         * ===============================
-         * SISTEMA DE CARRITO DE COMPRAS
-         * ===============================
-         * Este script maneja toda la funcionalidad del carrito de compras:
-         * - Agregar productos
-         * - Modificar cantidades
-         * - Eliminar productos
-         * - Persistencia en localStorage
-         * - Integración con WhatsApp
-         */
-
-        // ===== INICIALIZACIÓN DE VARIABLES GLOBALES =====
-        
-        // Cargar carrito desde localStorage o inicializar como array vacío
-        let cart = JSON.parse(localStorage.getItem('ventasbronca_cart')) || [];
-        
-        // Referencias a elementos del DOM para mejor rendimiento
-        const cartElements = {
-            items: document.getElementById('cart-items'),
-            count: document.getElementById('cart-count'),
-            countNav: document.getElementById('cart-count-nav'),
-            empty: document.getElementById('cart-empty'),
-            summary: document.getElementById('cart-summary'),
-            totalItems: document.getElementById('total-items'),
-            totalPrice: document.getElementById('total-price'),
-            checkoutBtn: document.getElementById('checkout-btn')
-        };
-
-        // ===== FUNCIONES UTILITARIAS =====
-        
-        /**
-         * Guarda el carrito en localStorage
-         * Mantiene la persistencia de datos entre sesiones
-         */
-        function saveCart() {
-            try {
-                localStorage.setItem('ventasbronca_cart', JSON.stringify(cart));
-            } catch (error) {
-                console.error('Error al guardar el carrito:', error);
-                showNotification('Error al guardar el carrito', 'error');
-            }
-        }
-
-        /**
-         * Formatea números como moneda chilena
-         * @param {number} amount - Cantidad a formatear
-         * @returns {string} - Cantidad formateada
-         */
-        function formatCurrency(amount) {
-            return new Intl.NumberFormat('es-CL', {
-                style: 'currency',
-                currency: 'CLP'
-            }).format(amount);
-        }
-
-        /**
-         * Muestra notificaciones al usuario
-         * @param {string} message - Mensaje a mostrar
-         * @param {string} type - Tipo de notificación (success, error, info)
-         */
-        function showNotification(message, type = 'success') {
-            // Crear elemento de notificación
-            const notification = document.createElement('div');
-            notification.className = `alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show position-fixed`;
-            notification.style.cssText = 'top: 100px; right: 20px; z-index: 1060; min-width: 300px;';
-            
-            notification.innerHTML = `
-                ${message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            `;
-            
-            // Agregar al body y remover automáticamente después de 3 segundos
-            document.body.appendChild(notification);
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 3000);
-        }
-
-        // ===== FUNCIONES DEL CARRITO =====
-        
-        /**
-         * Actualiza la interfaz del carrito con los productos actuales
-         * Maneja la visualización de productos, contadores y totales
-         */
-        function updateCart() {
-            // Limpiar contenido anterior
-            cartElements.items.innerHTML = '';
-            
-            let totalItems = 0;
-            let totalPrice = 0;
-
-            // Verificar si el carrito está vacío
-            if (cart.length === 0) {
-                cartElements.empty.style.display = 'block';
-                cartElements.summary.classList.add('d-none');
-                cartElements.checkoutBtn.disabled = true;
-            } else {
-                cartElements.empty.style.display = 'none';
-                cartElements.summary.classList.remove('d-none');
-                cartElements.checkoutBtn.disabled = false;
-
-                // Generar HTML para cada producto en el carrito
-                cart.forEach(item => {
-                    totalItems += item.quantity;
-                    totalPrice += item.price * item.quantity;
-
-                    const listItem = document.createElement('li');
-                    listItem.className = 'list-group-item';
-                    listItem.innerHTML = `
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1">${item.name}</h6>
-                                <small class="text-muted">SKU: ${item.sku}</small>
-                                <div class="mt-2">
-                                    <span class="badge bg-primary">${item.quantity} × ${formatCurrency(item.price)}</span>
-                                    <span class="fw-bold ms-2">${formatCurrency(item.price * item.quantity)}</span>
-                                </div>
-                            </div>
-                            <div class="btn-group-vertical btn-group-sm ms-3" role="group">
-                                <button class="btn btn-outline-secondary modify-qty" 
-                                        data-id="${item.id}" data-change="1" 
-                                        aria-label="Aumentar cantidad">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                                <button class="btn btn-outline-secondary modify-qty" 
-                                        data-id="${item.id}" data-change="-1" 
-                                        aria-label="Disminuir cantidad">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <button class="btn btn-outline-danger delete-item" 
-                                        data-id="${item.id}" 
-                                        aria-label="Eliminar producto">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                    cartElements.items.appendChild(listItem);
-                });
-
-                // Actualizar totales
-                cartElements.totalItems.textContent = totalItems;
-                cartElements.totalPrice.textContent = formatCurrency(totalPrice);
-            }
-
-            // Actualizar contadores en la UI
-            cartElements.count.textContent = totalItems;
-            if (cartElements.countNav) {
-                cartElements.countNav.textContent = totalItems;
-            }
-
-            // Guardar en localStorage
-            saveCart();
-        }
-
-        /**
-         * Agrega un producto al carrito
-         * @param {Object} product - Datos del producto a agregar
-         */
-        function addToCart(product) {
-            // Validar datos del producto
-            if (!product.id || !product.name || !product.price) {
-                showNotification('Error: Datos del producto incompletos', 'error');
-                return;
-            }
-
-            // Buscar si el producto ya existe en el carrito
-            const existingItem = cart.find(item => item.id === product.id);
-            
-            if (existingItem) {
-                existingItem.quantity += product.quantity;
-                showNotification(`Se agregaron ${product.quantity} ${product.name}(s) más al carrito`, 'info');
-            } else {
-                cart.push(product);
-                showNotification(`${product.name} agregado al carrito`, 'success');
-            }
-
-            updateCart();
-        }
-
-        /**
-         * Modifica la cantidad de un producto en el carrito
-         * @param {string} productId - ID del producto
-         * @param {number} change - Cambio en la cantidad (+1 o -1)
-         */
-        function modifyQuantity(productId, change) {
-            const item = cart.find(i => i.id === productId);
-            if (!item) return;
-
-            item.quantity += change;
-
-            if (item.quantity <= 0) {
-                if (confirm(`¿Eliminar ${item.name} del carrito?`)) {
-                    removeFromCart(productId);
-                } else {
-                    item.quantity = 1;
-                }
-            }
-
-            updateCart();
-        }
-
-        /**
-         * Elimina un producto del carrito
-         * @param {string} productId - ID del producto a eliminar
-         */
-        function removeFromCart(productId) {
-            const item = cart.find(i => i.id === productId);
-            if (item && confirm(`¿Eliminar ${item.name} del carrito?`)) {
-                cart = cart.filter(i => i.id !== productId);
-                updateCart();
-                showNotification('Producto eliminado del carrito', 'info');
-            }
-        }
-
-        // ===== EVENT LISTENERS =====
-        
-        /**
-         * Event listener para botones "Añadir al carrito"
-         */
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.add-to-cart')) {
-                const button = e.target.closest('.add-to-cart');
-                const quantityInput = button.parentElement.querySelector('.qty-input');
-                
-                // Validar cantidad
-                const quantity = parseInt(quantityInput.value) || 1;
-                if (quantity < 1 || quantity > 10) {
-                    showNotification('La cantidad debe estar entre 1 y 10', 'error');
-                    quantityInput.value = 1;
-                    return;
-                }
-
-                // Crear objeto producto
-                const product = {
-                    id: button.getAttribute('data-id'),
-                    sku: button.getAttribute('data-sku'),
-                    name: button.getAttribute('data-name'),
-                    price: parseInt(button.getAttribute('data-price')),
-                    quantity: quantity
-                };
-
-                addToCart(product);
-                quantityInput.value = 1; // Resetear cantidad
-            }
-        });
-
-        /**
-         * Event listener para modificar cantidades y eliminar productos del carrito
-         */
-        cartElements.items.addEventListener('click', function(e) {
-            const productId = e.target.closest('button')?.getAttribute('data-id');
-            if (!productId) return;
-
-            if (e.target.closest('.modify-qty')) {
-                const change = parseInt(e.target.closest('button').getAttribute('data-change'));
-                modifyQuantity(productId, change);
-            } else if (e.target.closest('.delete-item')) {
-                removeFromCart(productId);
-            }
-        });
-
-        /**
-         * Event listener para finalizar pedido por WhatsApp
-         */
-        cartElements.checkoutBtn.addEventListener('click', function() {
-            if (cart.length === 0) {
-                showNotification('El carrito está vacío', 'error');
-                return;
-            }
-
-            // Generar mensaje para WhatsApp
-            let message = "¡Hola! Me interesa adquirir los siguientes productos:%0A%0A";
-            let totalPrice = 0;
-
-            cart.forEach(item => {
-                const subtotal = item.price * item.quantity;
-                totalPrice += subtotal;
-                message += `• ${item.name}%0A`;
-                message += `  Cantidad: ${item.quantity}%0A`;
-                message += `  Precio unitario: ${formatCurrency(item.price)}%0A`;
-                message += `  Subtotal: ${formatCurrency(subtotal)}%0A%0A`;
-            });
-
-            message += `TOTAL: ${formatCurrency(totalPrice)}%0A%0A`;
-            message += "¿Están disponibles? ¡Gracias!";
-
-            // Abrir WhatsApp con el mensaje
-            const phoneNumber = "56974161396";
-            const whatsappURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${message}&type=phone_number&app_absent=0`;
-            window.open(whatsappURL, '_blank');
-            
-            // Mostrar confirmación
-            showNotification('Redirigiendo a WhatsApp...', 'success');
-        });
-
-        /**
-         * Validación de inputs de cantidad
-         */
-        document.addEventListener('input', function(e) {
-            if (e.target.classList.contains('qty-input')) {
-                const value = parseInt(e.target.value);
-                if (value < 1) e.target.value = 1;
-                if (value > 10) e.target.value = 10;
-            }
-        });
-
-        // ===== INICIALIZACIÓN =====
-        
-        /**
-         * Inicializar la aplicación cuando el DOM esté listo
-         */
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCart();
-            console.log('Sistema de carrito VentasBronca inicializado correctamente');
-        });
-
-        // Inicializar carrito al cargar la página
-        updateCart();
-    </script>
+    <script src="../src/js/carrito.js"></script>
 
 </body>
 </html>
