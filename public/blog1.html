@@ -14,27 +14,22 @@
          HEADER - NAVEGACIÓN PRINCIPAL
          =============================== -->
     <header>
-        <!-- Barra de navegación principal responsiva -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" role="navigation" aria-label="Navegación principal">
             <div class="container-fluid">
-                <!-- Logo/Marca de la tienda -->
-                <a class="navbar-brand d-flex align-items-center" href="#" aria-label="VentasBronca - Inicio">
-                    <img src="../src/assets/images/logo.jpg" alt="Logo VentasBronca" class="logo-img me-2">
-                    <span class="brand-text d-none d-sm-inline">VentasBronca</span>
+                <a class="navbar-brand d-flex flex-column align-items-center justify-content-center me-4" href="#" aria-label="VentasBronca - Inicio" style="min-width:90px;">
+                    <img src="../src/assets/images/logo.jpg" alt="Logo VentasBronca" class="logo-img mb-1" style="height:48px;width:auto;">
+                    <span class="brand-text fw-bold" style="font-size:1.1rem;">VentasBronca</span>
                 </a>
-                
-                <!-- Botón hamburguesa para dispositivos móviles -->
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" 
                         aria-controls="navbarMain" aria-expanded="false" aria-label="Abrir menú de navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
-                <!-- Menú de navegación colapsable -->
+
                 <div class="collapse navbar-collapse" id="navbarMain">
-                    <!-- Enlaces de navegación principales -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-current="page">
+                            <a class="nav-link active" href="index.html" aria-current="page">
                                 <i class="fas fa-home me-1"></i>Inicio
                             </a>
                         </li>
@@ -43,7 +38,6 @@
                                 <i class="fas fa-shopping-bag me-1"></i>Productos
                             </a>
                         </li>
-                        <!-- Menú desplegable de categorías -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
                                aria-expanded="false" aria-label="Menú de categorías">
@@ -63,25 +57,31 @@
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-plus me-2"></i>Ver más</a></li>
                             </ul>
                         </li>
+                        <!-- Botón Nosotros -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#contacto">
+                            <a class="nav-link" href="nosotros.html">
+                                <i class="fas fa-users me-1"></i>Nosotros
+                            </a>
+                        </li>
+                        <!-- Botón Blogs -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="blogs.html">
+                                <i class="fas fa-blog me-1"></i>Blogs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">
                                 <i class="fas fa-envelope me-1"></i>Contacto
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">
-                                <i class="fas fa-user me-1"></i>Iniciar sesión
-                            </a>
-                        </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-lg-none">
                             <a class="nav-link" href="registro.html">
                                 <i class="fas fa-user-plus me-1"></i>Registrarse
                             </a>
                         </li>
                     </ul>
-                    
-                    <!-- Barra de búsqueda responsiva -->
-                    <form class="d-flex me-3" role="search" aria-label="Búsqueda de productos">
+
+                    <form class="d-flex ms-lg-3 me-lg-3 my-2 my-lg-0" role="search" aria-label="Búsqueda de productos">
                         <div class="input-group">
                             <input class="form-control" type="search" placeholder="Buscar productos..." 
                                    aria-label="Buscar productos" required>
@@ -90,22 +90,30 @@
                             </button>
                         </div>
                     </form>
-                    
-                    <!-- Botón de carrito en la barra de navegación (visible en pantallas grandes) -->
-                    <button class="btn btn-outline-primary d-none d-lg-flex align-items-center" 
+
+                    <button class="btn btn-outline-primary d-none d-lg-flex align-items-center me-2" 
                             data-bs-toggle="modal" data-bs-target="#cartModal" aria-label="Ver carrito de compras">
                         <i class="fas fa-shopping-cart me-1"></i>
                         Carrito <span id="cart-count-nav" class="badge bg-danger ms-1">0</span>
                     </button>
+
+                    <div class="d-flex align-items-center ms-auto">
+                        <a href="login.html" class="btn btn-outline-secondary btn-sm px-3 py-1 me-2" style="font-size:0.95rem;">
+                            <i class="fas fa-user me-1"></i>Login
+                        </a>
+                        <a href="registro.html" class="btn btn-outline-success btn-sm px-3 py-1 d-none d-lg-inline" style="font-size:0.95rem;">
+                            <i class="fas fa-user-plus me-1"></i>Registrarse
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container py-5 mt-5">
+    <main class="container py-5 mt-5" style="color: #fff;">
         <div class="row align-items-center mb-5">
             <div class="col-md-6 mb-4 mb-md-0">
-                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Paracord en acción" class="img-fluid rounded shadow" style="max-height:320px;object-fit:cover;">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Paracord de supervivencia enrollado" class="img-fluid rounded shadow" style="max-height:320px;object-fit:cover;">
             </div>
             <div class="col-md-6">
                 <h1 class="display-6 fw-bold mb-3">Paracord: De la supervivencia al espacio</h1>
@@ -202,5 +210,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../src/js/main.js"></script>
+    <script src="../src/js/carrito.js"></script>
 </body>
 </html>
