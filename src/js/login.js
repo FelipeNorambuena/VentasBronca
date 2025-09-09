@@ -22,8 +22,18 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             form.password.classList.remove('is-invalid');
         }
-        // Si es válido, mostrar modal de bienvenida (puedes conectar lógica real después)
-        if (valid) {
+        // Si es válido, redirigir según el correo
+    if (valid) {
+      if (email.toLowerCase().startsWith('admin@')) {
+        if (password.length >= 4) {
+          window.location.href = '../Administrador/inicio.html';
+          return;
+        } else {
+          form.password.classList.add('is-invalid');
+          form.password.focus();
+          return;
+        }
+      }
             let modal = document.getElementById('loginExitosoModal');
             if (!modal) {
                 modal = document.createElement('div');
