@@ -245,6 +245,11 @@ body {
     border-radius: 15px 15px 0 0; /* Bordes redondeados superiores */
 }
 
+/* Cursor de zoom cuando la imagen es ampliable */
+.product-image[data-lightbox-src] {
+    cursor: zoom-in;
+}
+
 /* Carrusel de productos */
 .product-carousel {
     position: relative; /* Para posicionar elementos hijos */
@@ -291,6 +296,32 @@ body {
     right: 10px; /* Distancia desde la derecha */
 }
 
+/* ===== LIGHTBOX DE IMÁGENES ===== */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.lightbox-image {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 50px;
+}
+
 /* ===============================
    INFORMACIÓN DE PRODUCTOS
    =============================== */
@@ -327,6 +358,12 @@ body {
     border: 2px solid #007bff; /* Borde azul */
     border-radius: 8px; /* Bordes redondeados */
     transition: all 0.3s ease; /* Transición suave */
+    height: 48px; /* Altura aumentada (+10px) para mejor visibilidad */
+}
+
+/* Ancho específico para el catálogo (producto.html) */
+.products-section .qty-input {
+    width: 55px; /* +10px de ancho respecto a 70px del index */
 }
 
 .qty-input:focus {
@@ -545,7 +582,7 @@ body {
     
     /* Input de cantidad más pequeño */
     .qty-input {
-        width: 60px !important; /* Ancho reducido */
+    width: 70px !important; /* +10px para mejor visibilidad en móviles */
     }
     
     /* Modal de carrito en pantalla completa en móviles */
